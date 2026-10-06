@@ -1,0 +1,43 @@
+"""Machine-readable run manifests and human-readable evidence reports."""
+
+from .manifest import (
+    MANIFEST_VERSION,
+    ManifestVerificationError,
+    ResultManifest,
+    ScientificOutputComparison,
+    Verification,
+    compare_scientific_outputs,
+    configuration_snapshot,
+    create_manifest,
+    current_schema_digest,
+    current_source_digest,
+    hash_configuration,
+    hash_file,
+    load_manifest,
+    prepare_run_directory,
+    verify_manifest,
+    write_json_output,
+    write_output,
+    write_report,
+)
+
+__all__ = [
+    "MANIFEST_VERSION",
+    "ManifestVerificationError",
+    "ResultManifest",
+    "ScientificOutputComparison",
+    "Verification",
+    "compare_scientific_outputs",
+    "configuration_snapshot",
+    "create_manifest",
+    "current_schema_digest",
+    "current_source_digest",
+    "hash_configuration",
+    "hash_file",
+    "load_manifest",
+    "prepare_run_directory",
+    "verify_manifest",
+    "write_json_output",
+    "write_output",
+    "write_report",
+]

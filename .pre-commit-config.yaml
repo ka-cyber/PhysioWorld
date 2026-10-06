@@ -1,0 +1,31 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    # v5.0.0; upstream tag SHA verified.
+    rev: cef0300fd0fc4d2a87a85fa2093c6b283ea36f4b # pragma: allowlist secret
+    hooks:
+      - id: check-json
+      - id: check-yaml
+        args: [--unsafe]
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: detect-private-key
+      - id: check-added-large-files
+        args: [--maxkb=1024]
+  - repo: local
+    hooks:
+      - id: ruff
+        name: Locked Ruff lint
+        entry: uv run --frozen --extra dev ruff check
+        language: system
+        types_or: [python, pyi]
+      - id: ruff-format
+        name: Locked Ruff format
+        entry: uv run --frozen --extra dev ruff format --check
+        language: system
+        types_or: [python, pyi]
+      - id: docs
+        name: Public documentation links
+        entry: python tools/docs.py check
+        language: system
+        pass_filenames: false
+        types: [markdown]

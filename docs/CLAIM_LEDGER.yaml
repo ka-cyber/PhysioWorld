@@ -1,0 +1,51 @@
+schema_version: "1.0.0"
+status_scope:
+  VERIFIED-NUMERICAL: "Test-backed behavior for the named deterministic fixtures, independent references, and declared tolerances only. This is not a frozen production certification, release qualification receipt, or empirical validation."
+notes:
+  - "Test references identify executable checks. A new run must retain its own configuration, fixture and output hashes, environment, and observed comparison results."
+claims:
+  - id: CLAIM_NATIVE_CORPUS_EXECUTES
+    statement: "The native Level 3-targeted campaign executes deterministic synthetic and mathematical fixtures and writes provenance-bound outputs."
+    status: "VERIFIED-NUMERICAL"
+    evidence_class: "NUMERICAL_VERIFICATION"
+    source_ids: [LEVEL3_PROMPT, PHYSIOWORLD_CURRENT, GOLDEN_SYNTHETIC_FIXTURES]
+    experiment_ids: [native_level3_synthetic]
+    falsification_id: FALSIFY_NATIVE_CORPUS_REPLAY
+    verification_scope: "The shipped corpus configuration and synthetic/mathematical cases; no external cohort reproduction."
+    test_evidence:
+      - "tests/test_benchmark_corpus.py::BenchmarkCorpusTests::test_campaign_executes_every_native_level3_case"
+      - "tests/test_benchmark_corpus.py::BenchmarkCorpusTests::test_verticals_have_deterministic_replay_hashes"
+  - id: CLAIM_SYNTHETIC_NOT_EMPIRICAL
+    statement: "Synthetic fixture results are not empirical, external, measured, clinical, or hardware evidence."
+    status: "DEFINITION"
+    evidence_class: "DEFINITION"
+    source_ids: [LEVEL3_PROMPT, GOLDEN_SYNTHETIC_FIXTURES]
+    experiment_ids: [native_level3_synthetic]
+    falsification_id: FALSIFY_EVIDENCE_ORIGIN
+  - id: CLAIM_P1_ANALYTIC_REFERENCE
+    statement: "The P1 capacitor fixture agrees with its independent analytic terminal-voltage and current-limit references within declared tolerance."
+    status: "VERIFIED-NUMERICAL"
+    evidence_class: "NUMERICAL_VERIFICATION"
+    source_ids: [PHYSIOWORLD_CURRENT, GOLDEN_SYNTHETIC_FIXTURES]
+    experiment_ids: [native_level3_synthetic]
+    falsification_id: FALSIFY_RESOURCE_REFERENCE
+    verification_scope: "Constant-current, zero-leakage P1 fixture with declared capacitance, ESR, initial voltage, threshold, and duration; not the historical leaky-P1 or P2 targets."
+    test_evidence:
+      - "tests/test_benchmark_corpus.py::BenchmarkCorpusTests::test_p1_policy_and_robustness_use_exact_independent_references"
+  - id: CLAIM_POLICY_ORACLE
+    statement: "The finite policy fixture agrees with exhaustive policy enumeration for the declared finite MDP."
+    status: "VERIFIED-NUMERICAL"
+    evidence_class: "NUMERICAL_VERIFICATION"
+    source_ids: [PHYSIOWORLD_CURRENT]
+    experiment_ids: [native_level3_synthetic]
+    falsification_id: FALSIFY_POLICY_REFERENCE
+    verification_scope: "Two-state, two-action, deterministic, two-step MDP; no unrestricted physiology or learned-policy optimality claim."
+    test_evidence:
+      - "tests/test_benchmark_corpus.py::BenchmarkCorpusTests::test_p1_policy_and_robustness_use_exact_independent_references"
+  - id: CLAIM_EXTERNAL_REPRODUCTION
+    statement: "Extracted Level 3 protocols and reference values define context for synthetic/numerical analogues; matching empirical values and raw-data reproduction require the original data, estimators, and protocol artifacts."
+    status: "EXTRACTED_REFERENCE_ONLY"
+    evidence_class: "EXTRACTED_REFERENCE"
+    source_ids: [EXTERNAL_RESEARCH_CORPUS]
+    experiment_ids: []
+    falsification_id: null

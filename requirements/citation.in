@@ -1,0 +1,2 @@
+# Isolated tool: cffconvert requires jsonschema<4.
+cffconvert==2.0.0

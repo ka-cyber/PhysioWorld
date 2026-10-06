@@ -1,0 +1,87 @@
+schema_version: "1.0.0"
+source_id: LEVEL3_PROMPT
+source_status: EXTRACTED_REFERENCE_ONLY
+source_ledger: "docs/SCIENTIFIC_SOURCE_LEDGER.yaml"
+active_evidence: false
+notes:
+  - "These are extracted external reference values, not newly observed campaign results. Synthetic analogues do not reproduce empirical headline values."
+  - "Numerical comparisons require matching equations, topology, parameters, estimands, and uncertainty sets."
+reference_values:
+  - id: temporal_rmse_history
+    estimand: "one_step_prediction_RMSE_by_declared_history_length"
+    reproduction_mode: "EXTERNAL_RAW_DATA_REQUIRED_FOR_NUMERIC_COMPARISON"
+    values:
+      history_0: 17.17
+      history_5: 12.70
+      history_20: 12.26
+      history_40: 12.18
+    raw_data_status: "EXTERNAL_ACQUISITION_REQUIRED"
+  - id: representation_intrinsic_means
+    estimand: "intrinsic_task_value_by_candidate_representation"
+    reproduction_mode: "EXTERNAL_RAW_DATA_REQUIRED_FOR_NUMERIC_COMPARISON"
+    values:
+      Z1S: 0.737206
+      ZA15: 0.767162
+      ZB15: 0.772869
+      ZC15: 0.770908
+      ZMS: 0.768519
+    raw_data_status: "EXTERNAL_ACQUISITION_REQUIRED"
+  - id: representation_worst_cell
+    estimand: "worst_task_cell_intrinsic_value_by_candidate_representation"
+    reproduction_mode: "EXTERNAL_RAW_DATA_REQUIRED_FOR_NUMERIC_COMPARISON"
+    values:
+      Z1S: 0.531
+      ZA15: 0.629
+      ZB15: 0.578
+      ZC15: 0.576
+      ZMS: 0.610
+    raw_data_status: "EXTERNAL_ACQUISITION_REQUIRED"
+  - id: task_law_discrepancy
+    estimand: "D_hat_T_ZMS"
+    reproduction_mode: "EXTERNAL_RAW_DATA_REQUIRED_FOR_NUMERIC_COMPARISON"
+    values:
+      point: 0.086201874
+      epsilon_primary: 0.08
+      joint_at_10_point: 0.0804260187
+      joint_at_10_upper: 0.1144398067
+    raw_data_status: "EXTERNAL_ACQUISITION_REQUIRED"
+  - id: communication_negative_control
+    estimand: "semantic_task_law_discrepancy_under_coordinate_permutation"
+    reproduction_mode: "EXTERNAL_RAW_DATA_REQUIRED_FOR_NUMERIC_COMPARISON"
+    values:
+      valid_mean: 0.057983
+      permuted_mean: 0.527194
+      valid_worst_cell: 0.293563
+      permuted_worst_cell: 0.996599
+      decode_valid: 0.999346
+      decode_permuted: 0.999346
+    raw_data_status: "EXTERNAL_ACQUISITION_REQUIRED"
+  - id: controller_benchmark
+    estimand: "steady_state_energy_and_mean_reward_per_window"
+    reproduction_mode: "SYNTHETIC_CONTROLLER_ANALOGUE_ONLY"
+    values:
+      seeds: 5
+      sequential_windows: 1200
+      deadline_ms: 150
+      pir_linucb_energy_j: 0.089
+      pir_linucb_energy_sd: 0.004
+      mean_reward: 0.205
+      mean_reward_sd: 0.065
+    raw_data_status: "NO_RAW_DATA_REQUIRED_FOR_SYNTHETIC_CONTROLLER_ANALOGUE"
+  - id: ra_upit_resource
+    estimand: "deliverable_current_and_energy_under_declared_resource_model"
+    reproduction_mode: "NUMERICAL_ANALOGUE_ONLY_MATCHING_MODEL_REQUIRED"
+    values:
+      v0_v: 2.65
+      vmin_v: 1.85
+      capacitance_f: 0.2
+      esr_ohm: 8.0
+      duration_s: 10.0
+      p0_current_ma: 13.7931
+      p1_current_ma: 13.39603
+      p2_nominal_ma: 6.86462
+      p2_robust_ma: 6.113567
+      tailored_energy_j: 0.529841
+      uniform_energy_j: 0.646043
+      reduction_fraction: 0.1799
+    raw_data_status: "EXTRACTED_MODEL_REFERENCE_ONLY_NOT_HARDWARE_DATA"

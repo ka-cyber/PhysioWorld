@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/physioworld/vertical.schema.json",
+  "title": "PhysioWorld executable scientific vertical configuration",
+  "description": "A fully declared simulation or inline replay pipeline. Validation is configuration readiness, not execution, empirical validation, or clinical evidence. Numeric values must be finite; runtime additionally checks cross-field time, unit, and physical consistency.",
+  "type": "object",
+  "required": ["schema_version", "vertical", "dataset", "task", "representation", "perturbations", "channel", "resource", "compute", "policy", "seed", "split", "metrics", "outputs"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schema_version": {"const": "1.0.0"},
+    "name": {"$ref": "#/$defs/string"},
+    "vertical": {"enum": ["cardiovascular", "neurophysiology", "icu"]},
+    "dataset": {"$ref": "#/$defs/dataset"},
+    "task": {"$ref": "#/$defs/task"},
+    "representation": {"$ref": "#/$defs/representation"},
+    "perturbations": {"type": "array", "items": {"$ref": "#/$defs/perturbation"}},
+    "channel": {"$ref": "#/$defs/channel"},
+    "resource": {"$ref": "#/$defs/resource"},
+    "compute": {"$ref": "#/$defs/compute"},
+    "policy": {"$ref": "#/$defs/policy"},
+    "seed": {"type": "integer"},
+    "split": {"type": "object", "required": ["strategy"], "properties": {"strategy": {"enum": ["synthetic_fixed", "replay_fixed"]}}, "additionalProperties": false},
+    "metrics": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["packet_delivery", "mean_latency_s", "available_fraction", "reconstruction_distortion", "task_law_discrepancy", "capability_support", "task_value", "energy_j", "terminal_voltage_v", "compute_latency_s"]}},
+    "outputs": {"type": "object", "required": ["format"], "properties": {"format": {"const": "json"}}, "additionalProperties": false}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "string": {"type": "string", "minLength": 1},
+    "nonnegative": {"type": "number", "minimum": 0},
+    "positive": {"type": "number", "exclusiveMinimum": 0},
+    "probability": {"type": "number", "minimum": 0, "maximum": 1},
+    "positive_integer": {"type": "integer", "minimum": 1},
+    "dataset": {
+      "type": "object",
+      "required": ["id", "origin", "modality", "channel", "unit", "time_unit"],
+      "properties": {
+        "id": {"$ref": "#/$defs/string"}, "origin": {"enum": ["SYNTHETIC", "REPLAY"]},
+        "modality": {"enum": ["telemetry", "eeg"]}, "channel": {"$ref": "#/$defs/string"},
+        "unit": {"$ref": "#/$defs/string"}, "time_unit": {"const": "s"},
+        "model": {"const": "SyntheticPhysiology"},
+        "duration_s": {"type": "number", "exclusiveMinimum": 0, "maximum": 21600},
+        "sample_rate_hz": {"$ref": "#/$defs/positive"}, "sample_interval_s": {"$ref": "#/$defs/positive"},
+        "source": {"$ref": "#/$defs/string"},
+        "evidence_origin": {"enum": ["INLINE_ANALYTIC_REPLAY", "OBSERVED_REPLAY", "EXTERNAL_DATASET", "HUMAN_OBSERVATION"]},
+        "artifact_metadata": {"$ref": "#/$defs/artifact_metadata"},
+        "samples": {"type": "array", "minItems": 1, "items": {"type": "number"}},
+        "timestamps_s": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/nonnegative"}}
+      },
+      "oneOf": [
+        {"properties": {"origin": {"const": "SYNTHETIC"}}, "required": ["model", "duration_s", "sample_rate_hz", "sample_interval_s"], "not": {"anyOf": [{"required": ["samples"]}, {"required": ["timestamps_s"]}, {"required": ["source"]}]}},
+        {"properties": {"origin": {"const": "REPLAY"}}, "required": ["source", "samples", "timestamps_s"], "not": {"anyOf": [{"required": ["model"]}, {"required": ["duration_s"]}, {"required": ["sample_interval_s"]}]}}
+      ],
+      "additionalProperties": false
+    },
+    "artifact_metadata": {
+      "type": "object",
+      "required": ["artifact_id", "sha256", "verified"],
+      "properties": {
+        "artifact_id": {"$ref": "#/$defs/string"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
+        "verified": {"type": "boolean"},
+        "verification_status": {"const": "VERIFIED"}
+      },
+      "additionalProperties": false
+    },
+    "task": {
+      "type": "object",
+      "required": ["id", "kind", "target", "horizon_s", "metric", "threshold", "threshold_unit", "loss", "reference", "missingness", "uncertainty"],
+      "properties": {
+        "id": {"$ref": "#/$defs/string"}, "kind": {"const": "threshold_exceedance"},
+        "target": {"$ref": "#/$defs/string"}, "horizon_s": {"$ref": "#/$defs/nonnegative"},
+        "metric": {"enum": ["task_law_discrepancy", "task_value"]}, "threshold": {"type": "number"},
+        "threshold_unit": {"$ref": "#/$defs/string"}, "loss": {"const": "zero_one"},
+        "reference": {"const": "full_information"}, "missingness": {"const": "unavailable"},
+        "uncertainty": {"enum": ["none", "seeded_simulation", "observed_availability"]}
+      },
+      "additionalProperties": false
+    },
+    "representation": {
+      "oneOf": [
+        {"type": "object", "required": ["name", "window", "window_unit", "pad_value"], "properties": {"name": {"const": "finite_history"}, "window": {"$ref": "#/$defs/positive_integer"}, "window_unit": {"const": "samples"}, "pad_value": {"type": "number"}}, "additionalProperties": false},
+        {"type": "object", "required": ["name", "windows", "window_unit", "statistics"], "properties": {"name": {"const": "multiscale_history"}, "windows": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/positive_integer"}}, "window_unit": {"const": "samples"}, "statistics": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["mean", "std", "trend", "last"]}}}, "additionalProperties": false}
+      ]
+    },
+    "perturbation": {
+      "oneOf": [
+        {"type": "object", "required": ["type", "sigma"], "properties": {"type": {"const": "additive_noise"}, "sigma": {"$ref": "#/$defs/nonnegative"}, "seed": {"type": "integer"}}, "additionalProperties": false},
+        {"type": "object", "required": ["type", "time_s", "kind", "parameters"], "properties": {"type": {"const": "physiological_action"}, "time_s": {"$ref": "#/$defs/nonnegative"}, "kind": {"const": "orthostasis"}, "parameters": {"type": "object", "required": ["orthostasis"], "properties": {"orthostasis": {"$ref": "#/$defs/probability"}}, "additionalProperties": false}}, "additionalProperties": false},
+        {"type": "object", "required": ["type", "time_s", "kind", "parameters"], "properties": {"type": {"const": "physiological_action"}, "time_s": {"$ref": "#/$defs/nonnegative"}, "kind": {"const": "hemorrhage"}, "parameters": {"type": "object", "required": ["hemorrhage_ml_min"], "properties": {"hemorrhage_ml_min": {"$ref": "#/$defs/nonnegative"}}, "additionalProperties": false}}, "additionalProperties": false}
+      ]
+    },
+    "channel": {
+      "type": "object",
+      "required": ["model", "loss_probability", "latency_s", "jitter_s", "packet_payload_bytes", "encoding", "deadline_s"],
+      "properties": {
+        "model": {"const": "erasure"}, "loss_probability": {"$ref": "#/$defs/probability"},
+        "latency_s": {"$ref": "#/$defs/nonnegative"}, "jitter_s": {"$ref": "#/$defs/nonnegative"},
+        "packet_payload_bytes": {"type": "integer", "minimum": 4}, "encoding": {"const": "float32_be"},
+        "deadline_s": {"$ref": "#/$defs/nonnegative"}, "semantic_permutation": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "resource": {
+      "type": "object",
+      "required": ["model", "capacitance_f", "esr_ohm", "leakage_siemens", "initial_voltage_v", "v_min", "v_max", "max_current_a", "load_current_a", "step_duration_s"],
+      "properties": {
+        "model": {"enum": ["capacitor_p0", "capacitor_p1"]}, "capacitance_f": {"$ref": "#/$defs/positive"},
+        "esr_ohm": {"$ref": "#/$defs/nonnegative"}, "leakage_siemens": {"$ref": "#/$defs/nonnegative"},
+        "initial_voltage_v": {"$ref": "#/$defs/nonnegative"}, "v_min": {"$ref": "#/$defs/nonnegative"}, "v_max": {"$ref": "#/$defs/positive"},
+        "max_current_a": {"$ref": "#/$defs/positive"}, "load_current_a": {"$ref": "#/$defs/nonnegative"}, "step_duration_s": {"$ref": "#/$defs/positive"}
+      },
+      "additionalProperties": false
+    },
+    "compute": {
+      "type": "object",
+      "required": ["location", "operations_per_sample", "operations_per_second", "memory_bytes", "required_memory_bytes", "energy_per_operation_j", "network_latency_s"],
+      "properties": {
+        "location": {"enum": ["local", "edge", "cloud"]}, "operations_per_sample": {"$ref": "#/$defs/nonnegative"},
+        "operations_per_second": {"$ref": "#/$defs/positive"}, "memory_bytes": {"type": "integer", "minimum": 0},
+        "required_memory_bytes": {"type": "integer", "minimum": 0}, "energy_per_operation_j": {"$ref": "#/$defs/nonnegative"}, "network_latency_s": {"$ref": "#/$defs/nonnegative"}
+      },
+      "additionalProperties": false
+    },
+    "policy": {
+      "type": "object",
+      "required": ["class", "thresholds", "threshold_unit", "information_set", "action_set", "fallback_action", "rewards", "support_direction"],
+      "properties": {
+        "class": {"const": "declared_threshold_policy"}, "thresholds": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "number"}},
+        "threshold_unit": {"$ref": "#/$defs/string"}, "information_set": {"const": "received_history"},
+        "action_set": {"const": ["negative", "positive", "abstain"]}, "fallback_action": {"const": "abstain"},
+        "rewards": {"type": "object", "required": ["true_positive", "false_positive", "true_negative", "false_negative", "unavailable"], "properties": {"true_positive": {"type": "number"}, "false_positive": {"type": "number"}, "true_negative": {"type": "number"}, "false_negative": {"type": "number"}, "unavailable": {"type": "number"}}, "additionalProperties": false},
+        "support_direction": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"$ref": "#/$defs/nonnegative"}, "description": "Weights for declared policy utility and information availability, respectively."}
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,21 @@
+schema_version: "1.0.0"
+status_scope: "Numerical checks concern the named finite fixtures and model assumptions; implementation status is not a general proof or production certification."
+theorems:
+  - id: THEOREM_P1_CURRENT_LIMIT
+    statement: "For the declared constant-current, zero-leakage P1 model, the terminal-voltage bound gives I <= (V0 - Vmin)/(T/C + ESR)."
+    status: "IMPLEMENTED_AND_NUMERICALLY_CHECKED"
+    assumptions: [ASSUMP_P1_CIRCUIT]
+    implementation: "physioworld.resources.capacitor.CapacitorResource.constant_current_limit"
+    independent_reference: "physioworld.benchmarks.corpus._p1_reference"
+  - id: THEOREM_FINITE_POLICY_ENUMERATION
+    statement: "For a finite deterministic policy/action sequence set, exhaustive enumeration provides an exact policy-value reference."
+    status: "IMPLEMENTED_AND_NUMERICALLY_CHECKED"
+    assumptions: [ASSUMP_FINITE_POLICY]
+    implementation: "physioworld.policies.dp.DynamicProgrammingOracle"
+    independent_reference: "physioworld.benchmarks.corpus._finite_policy_reference"
+  - id: THEOREM_COMMON_POLICY_ROBUSTNESS
+    statement: "Common-policy robust value and clairvoyant value are distinct optimization orders."
+    status: "IMPLEMENTED_AND_NUMERICALLY_CHECKED"
+    assumptions: []
+    implementation: "physioworld.capability.analysis.robust_value"
+    independent_reference: "finite policy-by-kernel enumeration in native corpus runner"

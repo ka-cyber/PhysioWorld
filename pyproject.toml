@@ -1,0 +1,88 @@
+[build-system]
+requires = ["setuptools==83.0.0", "wheel==0.46.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "physioworld"
+version = "0.1.0"
+description = "Auditable physiological systems computing platform"
+readme = "README.md"
+requires-python = ">=3.10,<3.15"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "Navaneetha Krishnan Kamalakannan"}]
+keywords = ["physiology", "biosignals", "scientific-computing", "reproducibility"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Scientific/Engineering",
+]
+dependencies = []
+
+[project.optional-dependencies]
+scientific = ["numpy>=1.26,<3", "scipy>=1.11,<2"]
+wfdb = ["wfdb>=4.1,<5"]
+yaml = ["PyYAML>=6.0.2,<7"]
+plot = ["matplotlib>=3.8,<4"]
+schema = ["jsonschema>=4.23,<5"]
+arrow = ["pyarrow>=19,<30"]
+hdf5 = ["h5py>=3.12,<4", "numpy>=1.26,<3"]
+nwb = ["pynwb>=3,<4"]
+dicom = ["pydicom>=3,<4"]
+serial = ["pyserial>=3.5,<4"]
+fmi = ["fmpy>=0.3.25,<0.4"]
+dev = [
+  "pytest>=8.3,<10", "hypothesis>=6.112,<7", "ruff>=0.13,<1",
+  "coverage>=7.6,<8", "mypy>=1.18,<2", "types-PyYAML>=6.0",
+  "build>=1.3,<2", "twine>=6.1,<7", "bandit>=1.8,<2",
+  "setuptools==83.0.0", "wheel==0.46.2",
+  "cyclonedx-python-lib[json-validation]>=11,<12",
+  "pip-audit>=2.9,<3", "detect-secrets>=1.5,<2", "pre-commit>=4.3,<5",
+  "jsonschema>=4.23,<5", "PyYAML>=6.0.2,<7", "tzdata>=2024.1,<2027",
+]
+
+[project.scripts]
+physioworld = "physioworld.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["physioworld*"]
+
+[tool.setuptools.package-data]
+physioworld = [
+  "schemas/*.json", "corpus/golden/*.json", "corpus/golden/README.md",
+  "corpus/*.json",
+  "representations/README.md", "py.typed",
+]
+
+[tool.uv]
+required-version = ">=0.12.23,<0.13"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.coverage.run]
+branch = true
+source = ["physioworld"]
+
+[tool.coverage.report]
+exclude_lines = ["pragma: no cover", "if TYPE_CHECKING:"]
+
+[tool.mypy]
+python_version = "3.10"
+check_untyped_defs = true
+ignore_missing_imports = true

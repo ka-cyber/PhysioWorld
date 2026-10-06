@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "protocol_id": "research_validation_readiness",
+  "status": "READINESS_ONLY",
+  "required_before_external_evaluation": [
+    "locked_population_and_eligibility",
+    "locked_endpoint_and_horizon",
+    "locked_preprocessing_and_representation",
+    "independent_cohort",
+    "prespecified_uncertainty_and_error_analysis",
+    "context_of_use_and_safety_review"
+  ],
+  "forbidden_claims": ["clinical efficacy", "clinical validation", "regulatory approval"]
+}

@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0.0",
+  "software_version": "0.1.0",
+  "assurance_level": "RESEARCH_INFRASTRUCTURE_WITH_SYNTHETIC_AND_NUMERICAL_QUALIFICATION",
+  "release_command": "python tools/release_manifest.py --output <new-directory> --artifact <wheel> --artifact <sdist>",
+  "required_artifacts": ["manifest.json", "sbom.json", "checksums.sha256", "wheel", "sdist"],
+  "external_evidence_policy": "Do not promote blocked external experiments to PASS without source artifacts."
+}

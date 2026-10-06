@@ -1,0 +1,1 @@
+{"fixture":"packet_loss","seed":4,"source":"physiological-symbols","packets":[{"sequence":0,"payload":"AA=="},{"sequence":1,"payload":"AQ=="},{"sequence":2,"payload":"Ag=="}],"lost_sequences":[1]}

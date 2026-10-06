@@ -1,0 +1,1 @@
+{"fixture":"missing_modality","seed":3,"modalities":{"ECG":{"available":true,"samples":[0.0,0.2,0.8]},"PPG":{"available":false,"samples":[]}},"missingness":"block"}

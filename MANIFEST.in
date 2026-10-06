@@ -1,0 +1,32 @@
+include LICENSE CITATION.cff README.md CHANGELOG.md CONTRIBUTING.md SECURITY.md CODEOWNERS CLINICAL_VALIDATION.md
+include pyproject.toml uv.lock requirements.txt .gitignore .pre-commit-config.yaml
+recursive-include src/physioworld/schemas *.json
+recursive-include src/physioworld/corpus *.json
+recursive-include src/physioworld/corpus/golden *.json *.md
+include src/physioworld/representations/README.md
+recursive-include docs *.md *.yaml *.json
+recursive-include .github *.yml
+recursive-include change_control *.md *.json
+recursive-include clinical_protocols *.md *.json
+recursive-include risk *.json *.md
+recursive-include test_cases *.md *.json
+recursive-include validation *.md *.json
+recursive-include verification *.md *.json
+recursive-include tools *.py *.md
+recursive-include scripts *.py
+recursive-include requirements *.txt *.md
+recursive-include requirements *.in
+recursive-include release *.md
+recursive-include examples *.py *.json
+recursive-include experiments *.md *.json
+recursive-include configs *.json *.yaml
+recursive-include schemas *.json
+recursive-include tests *.py
+recursive-include datasets *.json *.md
+recursive-include benchmarks *.md
+global-exclude __pycache__ *.py[cod] .DS_Store
+prune .physioworld
+prune outputs
+prune run-artifacts
+prune results
+prune release/artifacts

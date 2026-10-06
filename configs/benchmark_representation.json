@@ -1,0 +1,1 @@
+{"name":"benchmark_representation","dataset":"golden_synthetic","task":{"id":"future","horizon_s":1,"target":"future_value","metric":"mae"},"representation":"finite_history","perturbations":[],"channel":{},"resource":{},"compute":{},"policy":{},"seed":11,"split":"synthetic_holdout_test","metrics":["D_tau","D_T"],"outputs":{"report":true}}

@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+title: PhysioWorld
+message: "If PhysioWorld supports your research, please cite the software release."
+type: software
+authors:
+  - given-names: Navaneetha Krishnan
+    family-names: Kamalakannan
+version: 0.1.0
+license: MIT
+abstract: >-
+  An auditable executable environment for physiological sensing, uncertainty,
+  representation, communication, computation, resource state, adaptive policy,
+  and downstream task evaluation.

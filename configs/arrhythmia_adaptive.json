@@ -1,0 +1,20 @@
+{
+  "name": "arrhythmia_adaptive_smoke",
+  "dataset": "mitdb",
+  "task": {
+    "id": "arrhythmia",
+    "horizon_s": 0,
+    "target": "rhythm_annotation",
+    "metric": "macro_f1"
+  },
+  "representation": "finite_history",
+  "perturbations": [],
+  "channel": {"type": "iid_erasure", "probability": 0.0},
+  "resource": {"model": "capacitor_p1", "capacitance_f": 0.2, "esr_ohm": 8.0, "v_min": 1.85},
+  "compute": {"placement": "local"},
+  "policy": {"type": "quality_aware"},
+  "seed": 7,
+  "split": "subject_test",
+  "metrics": ["macro_f1", "calibration", "task_law", "energy", "latency"],
+  "outputs": {"report": true}
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "scope": "scientific-model-and-software-change-control",
+  "required_review_fields": [
+    "changed_scientific_objects",
+    "affected_estimands",
+    "affected_claims",
+    "affected_reference_fixtures",
+    "verification_commands",
+    "migration_or_invalidation_decision"
+  ],
+  "rule": "A changed scientific kernel cannot silently reuse prior numerical evidence."
+}

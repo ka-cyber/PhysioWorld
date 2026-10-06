@@ -1,0 +1,105 @@
+{
+  "$schema": "../schemas/vertical.schema.json",
+  "schema_version": "1.0.0",
+  "name": "neurophysiology_vertical",
+  "vertical": "neurophysiology",
+  "seed": 0,
+  "dataset": {
+    "id": "synthetic_neurophysiology",
+    "origin": "SYNTHETIC",
+    "model": "SyntheticPhysiology",
+    "modality": "eeg",
+    "channel": "EEG",
+    "unit": "uV",
+    "time_unit": "s",
+    "duration_s": 12.0,
+    "sample_rate_hz": 64,
+    "sample_interval_s": 0.015625
+  },
+  "task": {
+    "id": "neurophysiology_threshold",
+    "kind": "threshold_exceedance",
+    "target": "EEG",
+    "horizon_s": 0.0,
+    "metric": "task_law_discrepancy",
+    "threshold": 5.0,
+    "threshold_unit": "uV",
+    "loss": "zero_one",
+    "reference": "full_information",
+    "missingness": "unavailable",
+    "uncertainty": "observed_availability"
+  },
+  "representation": {
+    "name": "multiscale_history",
+    "windows": [1, 4, 8],
+    "window_unit": "samples",
+    "statistics": ["mean", "std", "trend", "last"]
+  },
+  "perturbations": [
+    {
+      "type": "physiological_action",
+      "time_s": 4.0,
+      "kind": "orthostasis",
+      "parameters": {"orthostasis": 1.0}
+    }
+  ],
+  "channel": {
+    "model": "erasure",
+    "loss_probability": 0.05,
+    "latency_s": 0.002,
+    "jitter_s": 0.001,
+    "packet_payload_bytes": 256,
+    "encoding": "float32_be",
+    "deadline_s": 0.015625,
+    "semantic_permutation": false
+  },
+  "resource": {
+    "model": "capacitor_p1",
+    "capacitance_f": 0.2,
+    "esr_ohm": 8.0,
+    "leakage_siemens": 0.0,
+    "initial_voltage_v": 2.65,
+    "v_min": 1.85,
+    "v_max": 3.3,
+    "max_current_a": 0.02,
+    "load_current_a": 0.001,
+    "step_duration_s": 0.0001
+  },
+  "compute": {
+    "location": "local",
+    "operations_per_sample": 100.0,
+    "operations_per_second": 100000.0,
+    "memory_bytes": 4096,
+    "required_memory_bytes": 64,
+    "energy_per_operation_j": 1e-09,
+    "network_latency_s": 0.0
+  },
+  "policy": {
+    "class": "declared_threshold_policy",
+    "thresholds": [4.999, 5.0, 5.001],
+    "threshold_unit": "uV",
+    "information_set": "received_history",
+    "action_set": ["negative", "positive", "abstain"],
+    "fallback_action": "abstain",
+    "rewards": {
+      "true_positive": 1.0,
+      "false_positive": -1.0,
+      "true_negative": 1.0,
+      "false_negative": -1.0,
+      "unavailable": 0.0
+    },
+    "support_direction": [1.0, 0.0]
+  },
+  "split": {"strategy": "synthetic_fixed"},
+  "metrics": [
+    "packet_delivery",
+    "available_fraction",
+    "task_law_discrepancy",
+    "task_value",
+    "capability_support",
+    "energy_j",
+    "terminal_voltage_v",
+    "compute_latency_s"
+  ],
+  "outputs": {"format": "json"}
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "corpus_result.schema.json",
+  "title": "PhysioWorld native corpus result",
+  "description": "Versioned output contract for native corpus cases and campaign documents.",
+  "oneOf": [
+    {
+      "title": "Case result",
+      "type": "object",
+      "required": ["$schema", "schema_version", "case_id", "status", "data_origin", "data_fidelity", "evidence_class", "estimand", "seed", "configuration_hash", "limitations"],
+      "properties": {
+        "$schema": {"const": "../../corpus_result.schema.json"},
+        "schema_version": {"const": "1.0.0"},
+        "case_id": {"type": "string", "minLength": 1},
+        "status": {"enum": ["COMPLETE_SYNTHETIC_ONLY", "COMPLETE_NUMERICAL_REPRODUCTION", "FAILED_REFERENCE"]},
+        "data_origin": {"type": "string", "minLength": 1},
+        "data_fidelity": {"enum": ["SYNTHETIC", "MATHEMATICAL"]},
+        "evidence_class": {"enum": ["SIMULATION", "NUMERICAL_VERIFICATION"]},
+        "estimand": {"type": "string", "minLength": 1},
+        "seed": {"type": "integer"},
+        "configuration_hash": {"$ref": "#/$defs/hash"},
+        "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "replay_equal": {"type": "boolean"},
+        "scientific_output_hash": {"$ref": "#/$defs/hash"},
+        "replay_hash": {"$ref": "#/$defs/hash"}
+      },
+      "additionalProperties": true
+    },
+    {
+      "title": "Campaign manifest",
+      "type": "object",
+      "required": ["$schema", "schema_version", "status", "corpus_id", "configuration", "configuration_hash", "fixture_root", "fixture_hashes", "case_hashes", "cases"],
+      "properties": {
+        "$schema": {"const": "corpus_result.schema.json"},
+        "schema_version": {"const": "1.0.0"},
+        "status": {"enum": ["COMPLETE_SYNTHETIC_ONLY", "FAILED_REFERENCE"]},
+        "corpus_id": {"const": "native_level3_synthetic"},
+        "configuration": {"type": "object"},
+        "configuration_hash": {"$ref": "#/$defs/hash"},
+        "fixture_root": {"const": "package:physioworld/corpus/golden"},
+        "fixture_hashes": {"$ref": "#/$defs/hash_map"},
+        "case_hashes": {"$ref": "#/$defs/hash_map"},
+        "cases": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      },
+      "additionalProperties": true
+    },
+    {
+      "title": "Campaign summary",
+      "type": "object",
+      "required": ["$schema", "schema_version", "status", "corpus_id", "case_count", "cases", "configuration_hash", "manifest_hash"],
+      "properties": {
+        "$schema": {"const": "corpus_result.schema.json"},
+        "schema_version": {"const": "1.0.0"},
+        "status": {"enum": ["COMPLETE_SYNTHETIC_ONLY", "FAILED_REFERENCE"]},
+        "corpus_id": {"const": "native_level3_synthetic"},
+        "case_count": {"type": "integer", "minimum": 1},
+        "cases": {"type": "array", "minItems": 1},
+        "failed_cases": {"type": "array", "items": {"type": "string"}},
+        "configuration_hash": {"$ref": "#/$defs/hash"},
+        "manifest_hash": {"$ref": "#/$defs/hash"}
+      },
+      "additionalProperties": true
+    },
+    {
+      "title": "Unavailable external inputs",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "status", "role"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "status": {"enum": ["EXTERNAL_ACQUISITION_REQUIRED", "NOT_SUPPLIED"]},
+          "role": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "hash_map": {"type": "object", "additionalProperties": {"$ref": "#/$defs/hash"}}
+  }
+}

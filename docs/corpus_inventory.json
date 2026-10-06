@@ -1,0 +1,1126 @@
+{
+  "schema_version": "1.0.0",
+  "inventory_type": "curated_corpus_lineage",
+  "inventory_status": "ACCESSIBLE_WORKSPACE_METADATA_ONLY",
+  "hash_algorithm": "SHA-256",
+  "logical_path_policy": "All paths are workspace-relative or archive-logical; host paths and file contents are omitted.",
+  "privacy_policy": {
+    "metadata_only": true,
+    "public_content_included": false,
+    "agent_chatter_raw_logs_private_planning_excluded": true,
+    "indirect_sources_not_invented": true
+  },
+  "input_scope": {
+    "workspace_root_label": "workspace-root",
+    "project_root_label": "physioworld/",
+    "vcs_metadata_scanned": false,
+    "generated_public_inventory_excluded_from_project_tree_digest": "physioworld/docs/corpus_inventory.json",
+    "generated_cache_and_vcs_template_files_excluded_from_curated_tree_digest": true,
+    "complete_tree_sha256_includes_generated_files": true,
+    "archives_inspected_without_extraction": true
+  },
+  "counts": {
+    "workspace_files_hashed": 400,
+    "workspace_files_scanned": 400,
+    "project_files_scanned": 391,
+    "project_source_files_readable": 308,
+    "archive_inputs": 3,
+    "archive_inspections_including_nested": 3,
+    "archive_entries_hashed": 1276,
+    "nested_archives_found": 0,
+    "exact_duplicate_groups": 372,
+    "synthetic_fixture_files": 16,
+    "empirical_data_candidates_hashed": 0,
+    "real_empirical_source_files_found": 0,
+    "indirectly_documented_sources": 22
+  },
+  "top_level_inputs": [
+    {
+      "logical_path": "LICENSE",
+      "sha256": "0bec6ba20e29b6296d8d6c028c14d95f240bf990e5f928b69ed18019a9712852",
+      "bytes": 1077,
+      "hash_status": "HASHED"
+    },
+    {
+      "logical_path": "PHYSIOWORLD_LEVEL3_COMPLETE_CORPUS_EXPERIMENT_BUILD_PROMPT.md",
+      "sha256": "96015896e7cf552a967e338e7041561f6f5d5e85eeda2efd025ad504b827e9f4",
+      "bytes": 135420,
+      "hash_status": "HASHED"
+    },
+    {
+      "logical_path": "PhysioWorld_Final.zip",
+      "sha256": "a2e8b4e61959ac39d0e7f20d887131f25c84f83423713bd15a763e1ed3afb633",
+      "bytes": 1254222,
+      "hash_status": "HASHED"
+    },
+    {
+      "logical_path": "PhysioWorld_Final.zip.sha256",
+      "sha256": "ecbff5ca6f58657e9d21d30d4d6c6de614a5ff3efe59f40248d85d7e3cc98a4c",
+      "bytes": 88,
+      "hash_status": "HASHED"
+    },
+    {
+      "logical_path": "README.md",
+      "sha256": "bd5c0809f77f66966a2a62e42369ef6743784d60d949cbe3a7870975b5c1f3b8",
+      "bytes": 18,
+      "hash_status": "HASHED"
+    },
+    {
+      "logical_path": "physio.zip",
+      "sha256": "177d70ff695eb414806b7368ed09574346b5a771b869fcfc3549d4015d4269ee",
+      "bytes": 1302226,
+      "hash_status": "HASHED"
+    },
+    {
+      "logical_path": "physioworld1.zip",
+      "sha256": "1d1b5b73171d5d36c241e2a38babdbf7757fe3159b947cbb191188f3743d0f45",
+      "bytes": 4119541,
+      "hash_status": "HASHED"
+    },
+    {
+      "logical_path": "prompt 2.md",
+      "sha256": "cb3e643dfd5e1e3ecba9dd251810586082d0e6b2a4d279efc3dc253ae27f8797",
+      "bytes": 108147,
+      "hash_status": "HASHED"
+    },
+    {
+      "id": "PHYSIOWORLD_CURRENT",
+      "logical_root": "physioworld/",
+      "tree_sha256": "5858b05723e25545c7894cda5e07cc6ed84c4f5ef74ed878ad7f619134478f41",
+      "complete_tree_sha256": "549f90347dee2965e48855a75fad5c8489b9b901a8457689f6e8d6bfaca0826c",
+      "file_count": 391,
+      "tree_hash_file_count": 376,
+      "bytes": 4190846,
+      "classification_counts": {
+        "binary_or_unclassified": 7,
+        "configuration_or_metadata": 45,
+        "documentation": 61,
+        "generated_cache": 15,
+        "project_registry_or_ledger": 6,
+        "readable_text": 5,
+        "source_code": 236,
+        "synthetic_fixture": 16
+      },
+      "tree_hash_exclusions": [
+        "generated_cache",
+        "version_control_template",
+        "private_or_agent_material"
+      ]
+    },
+    {
+      "id": "PHYSIOWORLD_DOCS",
+      "logical_root": "physioworld/docs/",
+      "tree_sha256": "138e4cf30e8112846eed64a0ccfe2c7d59437334b577ad72c82bee7daf1cf07a",
+      "complete_tree_sha256": "138e4cf30e8112846eed64a0ccfe2c7d59437334b577ad72c82bee7daf1cf07a",
+      "file_count": 46,
+      "tree_hash_file_count": 46,
+      "bytes": 143992,
+      "classification_counts": {
+        "configuration_or_metadata": 1,
+        "documentation": 41,
+        "project_registry_or_ledger": 4
+      },
+      "tree_hash_exclusions": [
+        "generated_cache",
+        "version_control_template",
+        "private_or_agent_material"
+      ]
+    },
+    {
+      "id": "PHYSIOWORLD_SRC",
+      "logical_root": "physioworld/src/",
+      "tree_sha256": "85d084f79560b5ce0c79846f1ce36da6fe93eb5222331da838c62f12779e8971",
+      "complete_tree_sha256": "85d084f79560b5ce0c79846f1ce36da6fe93eb5222331da838c62f12779e8971",
+      "file_count": 194,
+      "tree_hash_file_count": 194,
+      "bytes": 1765383,
+      "classification_counts": {
+        "binary_or_unclassified": 1,
+        "configuration_or_metadata": 8,
+        "documentation": 1,
+        "project_registry_or_ledger": 1,
+        "source_code": 175,
+        "synthetic_fixture": 8
+      },
+      "tree_hash_exclusions": [
+        "generated_cache",
+        "version_control_template",
+        "private_or_agent_material"
+      ]
+    },
+    {
+      "id": "GOLDEN_SYNTHETIC_FIXTURES",
+      "tree_sha256": "53214106bc55829e92e2d0c8e11e22f37b609172145cb30cdfc19eeba2e81d6f",
+      "file_count": 16,
+      "logical_paths": [
+        "physioworld/datasets/golden/README.md",
+        "physioworld/datasets/golden/artifact.json",
+        "physioworld/datasets/golden/causal_intervention.json",
+        "physioworld/datasets/golden/missing_modality.json",
+        "physioworld/datasets/golden/normal_physiology.json",
+        "physioworld/datasets/golden/packet_loss.json",
+        "physioworld/datasets/golden/resource_depletion.json",
+        "physioworld/datasets/golden/task_transition.json",
+        "physioworld/src/physioworld/corpus/golden/README.md",
+        "physioworld/src/physioworld/corpus/golden/artifact.json",
+        "physioworld/src/physioworld/corpus/golden/causal_intervention.json",
+        "physioworld/src/physioworld/corpus/golden/missing_modality.json",
+        "physioworld/src/physioworld/corpus/golden/normal_physiology.json",
+        "physioworld/src/physioworld/corpus/golden/packet_loss.json",
+        "physioworld/src/physioworld/corpus/golden/resource_depletion.json",
+        "physioworld/src/physioworld/corpus/golden/task_transition.json"
+      ]
+    },
+    {
+      "id": "WORKSPACE_CHAT",
+      "logical_root": "chat/",
+      "tree_sha256": "a7f78632a363e44170f01688508cec22b3f800eca419ceb20e6b944c702aa1ec",
+      "complete_tree_sha256": "a7f78632a363e44170f01688508cec22b3f800eca419ceb20e6b944c702aa1ec",
+      "file_count": 1,
+      "tree_hash_file_count": 1,
+      "bytes": 42,
+      "classification_counts": {
+        "binary_or_unclassified": 1
+      },
+      "tree_hash_exclusions": [
+        "generated_cache",
+        "version_control_template",
+        "private_or_agent_material"
+      ]
+    }
+  ],
+  "archives": [
+    {
+      "logical_path": "PhysioWorld_Final.zip",
+      "sha256": "a2e8b4e61959ac39d0e7f20d887131f25c84f83423713bd15a763e1ed3afb633",
+      "bytes": 1254222,
+      "hash_status": "HASHED",
+      "entry_count": 359,
+      "entry_tree_sha256": "c53f0546a4a9ba29ca2c557607319b64eef0cfb3c1cc86b950bd3e68f88769d6",
+      "nested_archive_count": 0,
+      "readable_source_count": 295,
+      "empirical_candidate_count": 0,
+      "status": "INSPECTED"
+    },
+    {
+      "logical_path": "physio.zip",
+      "sha256": "177d70ff695eb414806b7368ed09574346b5a771b869fcfc3549d4015d4269ee",
+      "bytes": 1302226,
+      "hash_status": "HASHED",
+      "entry_count": 441,
+      "entry_tree_sha256": "50381a1d00c1a5c416ecfb99eec5d24210b5c925f64342b37b88cc60ca87feb5",
+      "nested_archive_count": 0,
+      "readable_source_count": 295,
+      "empirical_candidate_count": 0,
+      "status": "INSPECTED"
+    },
+    {
+      "logical_path": "physioworld1.zip",
+      "sha256": "1d1b5b73171d5d36c241e2a38babdbf7757fe3159b947cbb191188f3743d0f45",
+      "bytes": 4119541,
+      "hash_status": "HASHED",
+      "entry_count": 634,
+      "entry_tree_sha256": "9ada55a0c7c7360bad204ffad884f6bab8e0bc2eecc230cbb59601afb6453968",
+      "nested_archive_count": 0,
+      "readable_source_count": 252,
+      "empirical_candidate_count": 0,
+      "status": "INSPECTED"
+    }
+  ],
+  "archive_entry_tree_policy": "Top-level archive SHA-256 and entry-tree SHA-256 are public; complete member metadata is externalized.",
+  "duplicate_policy": {
+    "same_content_is_one_logical_artifact": true,
+    "duplicate_group_count": 372,
+    "public_example_groups": [
+      {
+        "sha256": "00d198eadbc0d3ec4466a0d5276c8e1d6901626c475af5e18418023e9fea9a89",
+        "member_count": 3,
+        "representative_logical_paths": [
+          "physioworld/tests/test_execution_qualification_verticals.py",
+          "PhysioWorld_Final.zip!physioworld/tests/test_execution_qualification_verticals.py",
+          "physio.zip!physioworld/tests/test_execution_qualification_verticals.py"
+        ]
+      },
+      {
+        "sha256": "01149e23941249be1ada94cf648cb3b51ad3a08d81a111bef818aefb1e54c796",
+        "member_count": 3,
+        "representative_logical_paths": [
+          "physioworld/src/physioworld/resources/lifecycle.py",
+          "PhysioWorld_Final.zip!physioworld/src/physioworld/resources/lifecycle.py",
+          "physio.zip!physioworld/src/physioworld/resources/lifecycle.py"
+        ]
+      },
+      {
+        "sha256": "023a159d50a678d83291898984d441640b286f7f62d3f20b8463bab16ebdfbca",
+        "member_count": 4,
+        "representative_logical_paths": [
+          "physioworld/benchmarks/README.md",
+          "PhysioWorld_Final.zip!physioworld/benchmarks/README.md",
+          "physio.zip!physioworld/benchmarks/README.md",
+          "physioworld1.zip!physioworld/benchmarks/README.md"
+        ]
+      },
+      {
+        "sha256": "03131f5e8e8beacce7b012fbf468fde1f05bf4578b0acf961310cb18c1434ac8",
+        "member_count": 3,
+        "representative_logical_paths": [
+          "physioworld/src/physioworld/physiology/models.py",
+          "PhysioWorld_Final.zip!physioworld/src/physioworld/physiology/models.py",
+          "physio.zip!physioworld/src/physioworld/physiology/models.py"
+        ]
+      },
+      {
+        "sha256": "03daa051ce466a0b168edd6e68491fbb5c34e216e82e1cf18b415652dcbefe64",
+        "member_count": 3,
+        "representative_logical_paths": [
+          "physioworld/src/physioworld/causal/scm.py",
+          "PhysioWorld_Final.zip!physioworld/src/physioworld/causal/scm.py",
+          "physio.zip!physioworld/src/physioworld/causal/scm.py"
+        ]
+      },
+      {
+        "sha256": "0400c63ef47d075e1881a1869a7255a64f32fbdf0c1919fd7f197a1cb9d40e39",
+        "member_count": 3,
+        "representative_logical_paths": [
+          "physioworld/src/physioworld/coupling/master.py",
+          "PhysioWorld_Final.zip!physioworld/src/physioworld/coupling/master.py",
+          "physio.zip!physioworld/src/physioworld/coupling/master.py"
+        ]
+      },
+      {
+        "sha256": "04365911798025a1d5972b6a8765405785e3d8d48d4aa94da994b02cd97d962e",
+        "member_count": 3,
+        "representative_logical_paths": [
+          "physioworld/examples/lab_acquisition.py",
+          "PhysioWorld_Final.zip!physioworld/examples/lab_acquisition.py",
+          "physio.zip!physioworld/examples/lab_acquisition.py"
+        ]
+      },
+      {
+        "sha256": "04612d7a7bb9fa1a18a352a5a59933ceba05dfa7f661f731311bf458b81df3dc",
+        "member_count": 3,
+        "representative_logical_paths": [
+          "physioworld/tests/test_execution_schemas.py",
+          "PhysioWorld_Final.zip!physioworld/tests/test_execution_schemas.py",
+          "physio.zip!physioworld/tests/test_execution_schemas.py"
+        ]
+      }
+    ],
+    "detailed_groups_externalized": true
+  },
+  "source_registry": [
+    {
+      "id": "PROMPT2",
+      "title": "PhysioWorld complete master build specification",
+      "artifact": "prompt 2.md",
+      "role": "baseline architecture, scientific and release acceptance contract",
+      "date_version": {
+        "versions": [],
+        "dates": []
+      },
+      "authority": "supplied build prompt",
+      "evidence_class": "DEFINITION",
+      "provenance_status": "DIRECTLY_ACCESSIBLE",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "MASTER_SCIENTIFIC_SUITE"
+      ]
+    },
+    {
+      "id": "LEVEL3_PROMPT",
+      "title": "PhysioWorld Level 3 scientific completion and corpus experiment specification",
+      "artifact": "PHYSIOWORLD_LEVEL3_COMPLETE_CORPUS_EXPERIMENT_BUILD_PROMPT.md",
+      "role": "corpus ingestion, executable experiments, VVUQ, falsification and release extension",
+      "date_version": {
+        "versions": [],
+        "dates": []
+      },
+      "authority": "supplied Level 3 build prompt",
+      "evidence_class": "DEFINITION",
+      "provenance_status": "DIRECTLY_ACCESSIBLE",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "MASTER_SCIENTIFIC_SUITE",
+        "ALL_LEVEL3_EXPERIMENTS"
+      ]
+    },
+    {
+      "id": "PHYSIOWORLD_CURRENT",
+      "title": "Current PhysioWorld implementation tree",
+      "artifact": "physioworld/",
+      "role": "executable platform and implementation authority",
+      "date_version": {
+        "version": "0.1.0",
+        "dates": []
+      },
+      "authority": "current workspace source tree",
+      "evidence_class": "SOFTWARE_VERIFICATION",
+      "provenance_status": "DIRECTLY_ACCESSIBLE",
+      "supersedes": [
+        "ARCHIVE_PHYSIOWORLD_FINAL",
+        "ARCHIVE_PHYSIO",
+        "ARCHIVE_PHYSIOWORLD1"
+      ],
+      "data_links": [
+        "GOLDEN_SYNTHETIC_FIXTURES",
+        "EXTERNAL_DATASET_REGISTRY"
+      ],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "MASTER_SCIENTIFIC_SUITE"
+      ],
+      "access_note": "tree_sha256 is the curated source digest; complete_tree_sha256 covers every hashed project file except this generated inventory."
+    },
+    {
+      "id": "PHYSIOWORLD_DOCS",
+      "title": "Project-owned documentation and scientific ledgers",
+      "artifact": "physioworld/docs/",
+      "role": "documentation, provenance ledgers, scope and interpretation boundaries",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "current workspace documentation",
+      "evidence_class": "EXTRACTED_SPECIFICATION",
+      "provenance_status": "DIRECTLY_ACCESSIBLE",
+      "supersedes": [],
+      "data_links": [
+        "EXTERNAL_DATASET_REGISTRY"
+      ],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "MASTER_SCIENTIFIC_SUITE"
+      ],
+      "access_note": "Documentation extracts do not become direct evidence for sources whose original bytes are absent."
+    },
+    {
+      "id": "PRIOR_RESEARCH_REPOSITORIES",
+      "title": "Accessible prior PhysioWorld research archives",
+      "artifact": "PhysioWorld_Final.zip; physio.zip; physioworld1.zip",
+      "role": "historical implementation snapshots; duplicate or stale files are not active evidence",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "workspace archive inspection",
+      "evidence_class": "HISTORICAL_CONTEXT",
+      "provenance_status": "ACCESSIBLE_ARCHIVES",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "master_scientific_suite"
+      ],
+      "access_note": "Archive member hashes and duplicate groups are recorded in the external detailed inventory."
+    },
+    {
+      "id": "GOLDEN_SYNTHETIC_FIXTURES",
+      "title": "Bundled deterministic golden fixtures",
+      "artifact": "physioworld/datasets/golden/ and physioworld/src/physioworld/corpus/golden/",
+      "role": "synthetic and mathematical fixtures for local verification",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "current workspace source tree",
+      "evidence_class": "SIMULATION",
+      "provenance_status": "DIRECTLY_ACCESSIBLE",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "MASTER_SCIENTIFIC_SUITE"
+      ],
+      "access_note": "Fixtures are synthetic or mathematical; they are not human empirical observations."
+    },
+    {
+      "id": "EXTERNAL_DATASET_REGISTRY",
+      "title": "Project dataset access registry",
+      "artifact": "physioworld/datasets/registry.json",
+      "role": "metadata about authorized external dataset acquisition",
+      "date_version": {
+        "versions": [],
+        "dates": []
+      },
+      "authority": "current workspace documentation",
+      "evidence_class": "METADATA",
+      "provenance_status": "DIRECTLY_ACCESSIBLE",
+      "supersedes": [],
+      "data_links": [
+        "UPIT_EMPIRICAL_RAW",
+        "EXTERNAL_31_RECORDING_COHORT",
+        "NIRS_EXTERNAL"
+      ],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [],
+      "access_note": "Registry entries are access metadata and do not indicate that the datasets are present."
+    },
+    {
+      "id": "ARCHIVE_PHYSIOWORLD_FINAL",
+      "title": "Accessible PhysioWorld_Final.zip implementation snapshot",
+      "artifact": "PhysioWorld_Final.zip",
+      "role": "historical implementation archive; duplicate files are not independent evidence",
+      "date_version": {
+        "version": "0.1.0",
+        "dates": []
+      },
+      "authority": "workspace archive inspection",
+      "evidence_class": "HISTORICAL_CONTEXT",
+      "provenance_status": "ACCESSIBLE_ARCHIVE",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "MASTER_SCIENTIFIC_SUITE"
+      ],
+      "access_note": "sha256=a2e8b4e61959ac39d0e7f20d887131f25c84f83423713bd15a763e1ed3afb633; entry_tree_sha256=c53f0546a4a9ba29ca2c557607319b64eef0cfb3c1cc86b950bd3e68f88769d6"
+    },
+    {
+      "id": "ARCHIVE_PHYSIO",
+      "title": "Accessible physio.zip implementation snapshot",
+      "artifact": "physio.zip",
+      "role": "historical implementation archive; duplicate files are not independent evidence",
+      "date_version": {
+        "version": "0.1.0",
+        "dates": []
+      },
+      "authority": "workspace archive inspection",
+      "evidence_class": "HISTORICAL_CONTEXT",
+      "provenance_status": "ACCESSIBLE_ARCHIVE",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "MASTER_SCIENTIFIC_SUITE"
+      ],
+      "access_note": "sha256=177d70ff695eb414806b7368ed09574346b5a771b869fcfc3549d4015d4269ee; entry_tree_sha256=50381a1d00c1a5c416ecfb99eec5d24210b5c925f64342b37b88cc60ca87feb5"
+    },
+    {
+      "id": "ARCHIVE_PHYSIOWORLD1",
+      "title": "Accessible physioworld1.zip implementation snapshot",
+      "artifact": "physioworld1.zip",
+      "role": "historical implementation archive; duplicate files are not independent evidence",
+      "date_version": {
+        "version": "0.1.0",
+        "dates": []
+      },
+      "authority": "workspace archive inspection",
+      "evidence_class": "HISTORICAL_CONTEXT",
+      "provenance_status": "ACCESSIBLE_ARCHIVE",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "MASTER_SCIENTIFIC_SUITE"
+      ],
+      "access_note": "sha256=1d1b5b73171d5d36c241e2a38babdbf7757fe3159b947cbb191188f3743d0f45; entry_tree_sha256=9ada55a0c7c7360bad204ffad884f6bab8e0bc2eecc230cbb59601afb6453968"
+    },
+    {
+      "id": "PIR_MATH",
+      "title": "PIR mathematical foundation",
+      "artifact": "external:pir/mathematical-foundation",
+      "role": "normative definitions for PIV, representation deficiency, loss decomposition and PIR",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "mentioned by supplied prompts or project ledgers",
+      "evidence_class": "DEFINITION",
+      "provenance_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "PIR_LOSS_DECOMPOSITION",
+        "PIV_COUNTERFACTUAL_SYNTHETIC"
+      ],
+      "access_note": "Original bytes are not present in the accessible workspace; contents are not inferred."
+    },
+    {
+      "id": "PIR_CONTROLLER",
+      "title": "PIR cross-layer controller study",
+      "artifact": "external:pir/cross-layer-controller-study",
+      "role": "historical cross-layer allocation/controller benchmark",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "mentioned by supplied prompts or project ledgers",
+      "evidence_class": "EXTRACTED_SPECIFICATION",
+      "provenance_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "CROSS_LAYER_CONTROLLER_BENCHMARK"
+      ],
+      "access_note": "Original bytes are not present in the accessible workspace; contents are not inferred."
+    },
+    {
+      "id": "UPIT_EMPIRICAL",
+      "title": "UPIT empirical/validation implementation",
+      "artifact": "external:upit/empirical-study",
+      "role": "historical orthostatic task-law and representation programme",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "mentioned by supplied prompts or project ledgers",
+      "evidence_class": "EXTRACTED_REFERENCE",
+      "provenance_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "data_links": [
+        "UPIT_EMPIRICAL_RAW",
+        "EXTERNAL_31_RECORDING_COHORT"
+      ],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "TEMPORAL_HISTORY_SWEEP",
+        "TASK_LAW_BATTERY",
+        "EXTERNAL_TRANSPORT"
+      ],
+      "access_note": "Original bytes are not present in the accessible workspace; contents are not inferred."
+    },
+    {
+      "id": "UPIT_MATH",
+      "title": "UPIT mathematical framework",
+      "artifact": "external:upit/mathematical-framework",
+      "role": "task-law, capability and policy-relative information definitions",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "mentioned by supplied prompts or project ledgers",
+      "evidence_class": "DEFINITION",
+      "provenance_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "TASK_LAW_BATTERY",
+        "SUPPORT_FUNCTION_CORRECTION"
+      ],
+      "access_note": "Original bytes are not present in the accessible workspace; contents are not inferred."
+    },
+    {
+      "id": "RA_UPIT_GENERAL",
+      "title": "General RA-UPIT mathematical framework",
+      "artifact": "external:ra-upit/general-framework",
+      "role": "resource-conditioned capability and robust policy definitions",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "mentioned by supplied prompts or project ledgers",
+      "evidence_class": "DEFINITION",
+      "provenance_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "RA_UPIT_PHYSICS",
+        "RESOURCE_CONDITIONED_CAPABILITY"
+      ],
+      "access_note": "Original bytes are not present in the accessible workspace; contents are not inferred."
+    },
+    {
+      "id": "RA_UPIT_RESOURCE_MASTER",
+      "title": "RA-UPIT nanocapacitor master specification",
+      "artifact": "external:ra-upit/nanocapacitor-specification",
+      "role": "canonical P0/P1/P2 resource fixture and numerical references",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "mentioned by supplied prompts or project ledgers",
+      "evidence_class": "EXTRACTED_REFERENCE",
+      "provenance_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "RA_UPIT_PHYSICS"
+      ],
+      "access_note": "Original bytes are not present in the accessible workspace; contents are not inferred."
+    },
+    {
+      "id": "COMMUNICATION_THEORY",
+      "title": "Communication and capability mathematical draft",
+      "artifact": "external:communication/capability-draft",
+      "role": "semantic-versus-transport distinction and coding requirements",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "mentioned by supplied prompts or project ledgers",
+      "evidence_class": "DEFINITION",
+      "provenance_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "COMMUNICATION_NEGATIVE_CONTROL"
+      ],
+      "access_note": "Original bytes are not present in the accessible workspace; contents are not inferred."
+    },
+    {
+      "id": "DECISION_THEORY",
+      "title": "Prior decision-theoretic scientific draft",
+      "artifact": "external:decision-theory/prior-draft",
+      "role": "utility, policy and capability interpretation boundary",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "mentioned by supplied prompts or project ledgers",
+      "evidence_class": "EXTRACTED_SPECIFICATION",
+      "provenance_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "SUPPORT_FUNCTION_CORRECTION",
+        "PIR_LOSS_DECOMPOSITION"
+      ],
+      "access_note": "Original bytes are not present in the accessible workspace; contents are not inferred."
+    },
+    {
+      "id": "CURRENT_SCIENTIFIC_MAIN",
+      "title": "Current flagship main scientific document",
+      "artifact": "external:current-scientific-main",
+      "role": "current corrected scientific interpretation",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "mentioned by supplied prompts or project ledgers",
+      "evidence_class": "EXTRACTED_REFERENCE",
+      "provenance_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "data_links": [
+        "UPIT_EMPIRICAL_RAW",
+        "EXTERNAL_31_RECORDING_COHORT"
+      ],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "TEMPORAL_HISTORY_SWEEP",
+        "TASK_LAW_BATTERY",
+        "SUPPORT_FUNCTION_CORRECTION"
+      ],
+      "access_note": "Original bytes are not present in the accessible workspace; contents are not inferred."
+    },
+    {
+      "id": "CURRENT_SCIENTIFIC_SUPPLEMENT",
+      "title": "Current flagship supplementary scientific document",
+      "artifact": "external:current-scientific-supplement",
+      "role": "supplementary methods, controls and source-specific analyses",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "mentioned by supplied prompts or project ledgers",
+      "evidence_class": "EXTRACTED_SPECIFICATION",
+      "provenance_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "data_links": [
+        "NIRS_EXTERNAL",
+        "NETWORK_EXTERNAL"
+      ],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "NIRS_RAW_PROXY",
+        "NETWORK_PHYSIOLOGY"
+      ],
+      "access_note": "Original bytes are not present in the accessible workspace; contents are not inferred."
+    },
+    {
+      "id": "PRIOR_CORRECTED_SCIENTIFIC_DOCUMENTS",
+      "title": "Previous corrected or reconciled scientific documents",
+      "artifact": "external:prior-corrected-scientific-documents",
+      "role": "historical source documents mentioned by the supplied corpus prompt",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "mentioned by supplied prompts or project ledgers",
+      "evidence_class": "HISTORICAL_CONTEXT",
+      "provenance_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [],
+      "access_note": "Original bytes are not present in the accessible workspace; contents are not inferred."
+    },
+    {
+      "id": "PRIOR_RESEARCH_AUDITS",
+      "title": "Prior research-audit files",
+      "artifact": "external:physioworld/prior-research-audits",
+      "role": "historical audit material mentioned by the supplied corpus prompt",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "mentioned by supplied prompts or project ledgers",
+      "evidence_class": "SOFTWARE_VERIFICATION",
+      "provenance_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "MASTER_SCIENTIFIC_SUITE"
+      ],
+      "access_note": "Original bytes are not present in the accessible workspace; contents are not inferred."
+    },
+    {
+      "id": "LEVEL1_AUDIT",
+      "title": "PhysioWorld Level 1 audit",
+      "artifact": "external:physioworld/level1-audit",
+      "role": "prior implementation and scientific audit findings",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "mentioned by supplied prompts or project ledgers",
+      "evidence_class": "SOFTWARE_VERIFICATION",
+      "provenance_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "MASTER_SCIENTIFIC_SUITE"
+      ],
+      "access_note": "Original bytes are not present in the accessible workspace; contents are not inferred."
+    },
+    {
+      "id": "LEVEL2_AUDIT",
+      "title": "PhysioWorld Level 2 post-build audit",
+      "artifact": "external:physioworld/level2-audit",
+      "role": "post-build audit mentioned by the supplied Level 3 prompt",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "mentioned by supplied prompts or project ledgers",
+      "evidence_class": "SOFTWARE_VERIFICATION",
+      "provenance_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "MASTER_SCIENTIFIC_SUITE"
+      ],
+      "access_note": "Original bytes are not present in the accessible workspace; contents are not inferred."
+    },
+    {
+      "id": "UPIT_EMPIRICAL_RAW",
+      "title": "UPIT empirical raw cohort",
+      "artifact": "external:upit/empirical-study/raw-data",
+      "role": "raw empirical source data required for the historical UPIT analyses",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "mentioned by supplied prompts or project ledgers",
+      "evidence_class": "EMPIRICAL_ESTIMATE",
+      "provenance_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "TEMPORAL_HISTORY_SWEEP",
+        "TASK_LAW_BATTERY"
+      ],
+      "access_note": "Original bytes are not present in the accessible workspace; contents are not inferred."
+    },
+    {
+      "id": "EXTERNAL_31_RECORDING_COHORT",
+      "title": "31-recording/subject external cohort",
+      "artifact": "external:upit/31-recording-cohort",
+      "role": "independent predictive transport cohort mentioned by the supplied corpus",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "mentioned by supplied prompts or project ledgers",
+      "evidence_class": "EXTERNAL_VALIDATION",
+      "provenance_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "EXTERNAL_TRANSPORT",
+        "CROSS_REGIME_TRANSFER"
+      ],
+      "access_note": "Original bytes are not present in the accessible workspace; contents are not inferred."
+    },
+    {
+      "id": "NIRS_EXTERNAL",
+      "title": "NIRS source recordings",
+      "artifact": "external:nirs/source-recordings",
+      "role": "source recordings for the declared raw optical-density proxy analysis",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "mentioned by supplied prompts or project ledgers",
+      "evidence_class": "EMPIRICAL_ESTIMATE",
+      "provenance_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "NIRS_RAW_PROXY"
+      ],
+      "access_note": "Original bytes are not present in the accessible workspace; contents are not inferred."
+    },
+    {
+      "id": "NETWORK_EXTERNAL",
+      "title": "Network physiology source recordings",
+      "artifact": "external:network-physiology/source-recordings",
+      "role": "source recordings for association and surrogate analyses",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "mentioned by supplied prompts or project ledgers",
+      "evidence_class": "EMPIRICAL_ESTIMATE",
+      "provenance_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "NETWORK_PHYSIOLOGY"
+      ],
+      "access_note": "Original bytes are not present in the accessible workspace; contents are not inferred."
+    },
+    {
+      "id": "EXTERNAL_STRESS_DATASETS",
+      "title": "Wearable, CPAP, Mayo/LBNP and other external stress datasets",
+      "artifact": "external:declared-stress-datasets",
+      "role": "source-specific external datasets mentioned for transport or stress testing",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "mentioned by supplied prompts or project ledgers",
+      "evidence_class": "EXTERNAL_VALIDATION",
+      "provenance_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "data_links": [
+        "WEARABLE_EXTERNAL",
+        "CPAP_EXTERNAL",
+        "MAYO_LBNP_EXTERNAL"
+      ],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "EXTERNAL_STRESS_FAMILY"
+      ],
+      "access_note": "Original bytes are not present in the accessible workspace; contents are not inferred."
+    },
+    {
+      "id": "WEARABLE_EXTERNAL",
+      "title": "Wearable external source data",
+      "artifact": "external:wearable/source-data",
+      "role": "source-specific wearable stress-test data",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "mentioned by supplied Level 3 prompt",
+      "evidence_class": "EMPIRICAL_ESTIMATE",
+      "provenance_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "EXTERNAL_STRESS_FAMILY"
+      ],
+      "access_note": "Mentioned source only; no source bytes were found."
+    },
+    {
+      "id": "CPAP_EXTERNAL",
+      "title": "CPAP external source data",
+      "artifact": "external:cpap/source-data",
+      "role": "source-specific CPAP stress-test data",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "mentioned by supplied Level 3 prompt",
+      "evidence_class": "EMPIRICAL_ESTIMATE",
+      "provenance_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "EXTERNAL_STRESS_FAMILY"
+      ],
+      "access_note": "Mentioned source only; no source bytes were found."
+    },
+    {
+      "id": "MAYO_LBNP_EXTERNAL",
+      "title": "Mayo/LBNP external source data",
+      "artifact": "external:mayo-lbnp/source-data",
+      "role": "source-specific dynamic validation data",
+      "date_version": {
+        "version": null,
+        "dates": []
+      },
+      "authority": "mentioned by supplied Level 3 prompt",
+      "evidence_class": "EMPIRICAL_ESTIMATE",
+      "provenance_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "data_links": [],
+      "implementation_links": [
+        "PHYSIOWORLD_CURRENT"
+      ],
+      "experiment_links": [
+        "EXTERNAL_STRESS_FAMILY"
+      ],
+      "access_note": "Mentioned source only; no source bytes were found."
+    }
+  ],
+  "lineage": [
+    {
+      "from": "PROMPT2",
+      "relation": "specifies",
+      "to": "PHYSIOWORLD_CURRENT"
+    },
+    {
+      "from": "LEVEL3_PROMPT",
+      "relation": "extends_and_requires",
+      "to": "PROMPT2"
+    },
+    {
+      "from": "LEVEL3_PROMPT",
+      "relation": "requires_ingestion_of",
+      "to": "PRIOR_RESEARCH_REPOSITORIES"
+    },
+    {
+      "from": "PHYSIOWORLD_CURRENT",
+      "relation": "implements",
+      "to": "GOLDEN_SYNTHETIC_FIXTURES"
+    },
+    {
+      "from": "PHYSIOWORLD_CURRENT",
+      "relation": "supersedes_as_active_implementation",
+      "to": "PRIOR_RESEARCH_REPOSITORIES"
+    },
+    {
+      "from": "CURRENT_SCIENTIFIC_MAIN",
+      "relation": "supersedes",
+      "to": "PRIOR_CORRECTED_SCIENTIFIC_DOCUMENTS"
+    },
+    {
+      "from": "LEVEL2_AUDIT",
+      "relation": "supersedes",
+      "to": "LEVEL1_AUDIT"
+    },
+    {
+      "from": "CURRENT_SCIENTIFIC_MAIN",
+      "relation": "requires_data",
+      "to": "UPIT_EMPIRICAL_RAW"
+    },
+    {
+      "from": "PHYSIOWORLD_CURRENT",
+      "relation": "provides_synthetic_substitute_for",
+      "to": "UPIT_EMPIRICAL_RAW"
+    },
+    {
+      "from": "EXTERNAL_DATASET_REGISTRY",
+      "relation": "describes_access_for",
+      "to": "EXTERNAL_STRESS_DATASETS"
+    }
+  ],
+  "empirical_data_findings": {
+    "real_empirical_source_data_found": false,
+    "accessible_real_empirical_logical_paths": [],
+    "indirectly_documented_empirical_sources": [
+      "UPIT_EMPIRICAL_RAW",
+      "EXTERNAL_31_RECORDING_COHORT",
+      "NIRS_EXTERNAL",
+      "NETWORK_EXTERNAL",
+      "WEARABLE_EXTERNAL",
+      "CPAP_EXTERNAL",
+      "MAYO_LBNP_EXTERNAL"
+    ],
+    "synthetic_fixture_policy": "Bundled golden JSON fixtures are synthetic or mathematical and are not human evidence.",
+    "non_empirical_binary_notes": {
+      "generated_cache_candidates": [
+        "physioworld/.mypy_cache/3.10/cache.db"
+      ],
+      "interpretation": "Any .db entries found under mypy caches and .sample entries under VCS hooks are generated/tooling artifacts, not empirical source records."
+    }
+  },
+  "raw_inventory": {
+    "logical_location": "external_raw_inventory/corpus_inventory_detailed.json",
+    "contains_content": false,
+    "contains_complete_file_and_entry_metadata": true
+  }
+}

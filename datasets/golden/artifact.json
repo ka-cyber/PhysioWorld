@@ -1,0 +1,1 @@
+{"fixture":"artifact","seed":2,"modality":"ECG","sample_rate":10,"unit":"mV","samples":[0.0,0.2,0.8,0.2,0.0,-0.1,0.0],"perturbation":{"type":"motion_artifact","amplitude":0.5,"frequency_hz":1.0}}

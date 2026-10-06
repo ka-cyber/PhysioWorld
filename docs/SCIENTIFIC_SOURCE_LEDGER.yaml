@@ -1,0 +1,115 @@
+schema_version: "1.0.0"
+ledger_status: "ACCESSIBLE_CORPUS_ONLY"
+notes:
+  - "External source identifiers are logical provenance labels, not download URLs. The original documents and raw data are not distributed with PhysioWorld."
+  - "The documentation ledgers record extracted definitions, protocols, estimands, reference values, and interpretation boundaries; these extracts are not direct raw-data evidence."
+  - "Source IDs are retained for compatibility with corpus manifests. Ledger references identify the distributed extracts, not copies of the external documents."
+  - "External raw cohorts still require authorized acquisition and are never fabricated."
+sources:
+  - id: PROMPT2
+    artifact: "external:physioworld/baseline-specification"
+    ledger_reference: "docs/SCIENTIFIC_SOURCE_LEDGER.yaml"
+    role: "baseline scientific and architecture specification"
+    status: "EXTERNAL_SPECIFICATION"
+    authority: "external project specification"
+    evidence_class: "DEFINITION"
+    implementation_required: true
+    implementation_status: "IMPLEMENTED_BASELINE"
+    sha256: "cb3e643dfd5e1e3ecba9dd251810586082d0e6b2a4d279efc3dc253ae27f8797" # pragma: allowlist secret
+  - id: LEVEL3_PROMPT
+    artifact: "external:physioworld/level3-scientific-specification"
+    ledger_reference: "docs/REFERENCE_ARTIFACTS.yaml"
+    role: "Level 3 scientific definitions and corpus experiment protocols"
+    status: "EXTRACTED_SPECIFICATION"
+    authority: "external scientific specification"
+    evidence_class: "EXTRACTED_SPECIFICATION"
+    implementation_required: true
+    implementation_status: "NATIVE_SYNTHETIC_CAMPAIGN_IMPLEMENTED"
+    sha256: "96015896e7cf552a967e338e7041561f6f5d5e85eeda2efd025ad504b827e9f4" # pragma: allowlist secret
+  - id: PHYSIOWORLD_CURRENT
+    artifact: "package:physioworld"
+    role: "current executable platform"
+    status: "AVAILABLE_IMPLEMENTATION"
+    authority: "current repository"
+    evidence_class: "SOFTWARE_VERIFICATION"
+    implementation_required: true
+    implementation_status: "IMPLEMENTED_WITH_TEST_COVERAGE"
+  - id: GOLDEN_SYNTHETIC_FIXTURES
+    artifact: "package:physioworld/corpus/golden"
+    role: "deterministic synthetic and mathematical fixtures"
+    status: "AVAILABLE_DATA"
+    authority: "current repository"
+    evidence_class: "SIMULATION"
+    implementation_required: true
+    implementation_status: "BOUND_TO_NATIVE_LEVEL3_CAMPAIGN"
+  - id: SCIENTIFIC_CONTEXT
+    artifact: "docs/scientific-context.md"
+    role: "historical research context and limitations"
+    status: "AVAILABLE_CONTEXT_ONLY"
+    authority: "repository historical summary"
+    evidence_class: "HISTORICAL_CONTEXT"
+    implementation_required: false
+    implementation_status: "CONTEXT_ONLY_NOT_ACTIVE_EVIDENCE"
+  - id: PIR_MATH
+    artifact: "external:pir/mathematical-foundation"
+    ledger_reference: "docs/THEOREM_LEDGER.yaml"
+    role: "PIR mathematical foundation"
+    status: "EXTRACTED_DEFINITIONS_ONLY"
+    authority: "definitions extracted in the Level 3 and baseline specifications"
+    evidence_class: "EXTRACTED_SPECIFICATION"
+    implementation_required: true
+    implementation_status: "PLATFORM_KERNEL_EXISTS_SOURCE_REPRODUCTION_UNAVAILABLE"
+  - id: PIR_CONTROLLER
+    artifact: "external:pir/cross-layer-controller-study"
+    ledger_reference: "docs/REFERENCE_ARTIFACTS.yaml"
+    role: "PIR cross-layer controller study"
+    status: "EXTRACTED_DEFINITIONS_ONLY"
+    authority: "protocol extracted in the Level 3 specification"
+    evidence_class: "EXTRACTED_SPECIFICATION"
+    implementation_required: true
+    implementation_status: "CONTROLLER_INFRASTRUCTURE_EXISTS_SOURCE_REPRODUCTION_UNAVAILABLE"
+  - id: UPIT_EMPIRICAL
+    artifact: "external:upit/empirical-study"
+    ledger_reference: "docs/REFERENCE_ARTIFACTS.yaml"
+    role: "UPIT empirical/validation implementation"
+    status: "EXTRACTED_REFERENCE_ONLY"
+    authority: "protocol and reference values extracted in the Level 3 specification"
+    evidence_class: "EXTRACTED_REFERENCE"
+    implementation_required: true
+    implementation_status: "EXTERNAL_EMPIRICAL_RUN_UNAVAILABLE"
+  - id: UPIT_MATH
+    artifact: "external:upit/mathematical-framework"
+    ledger_reference: "docs/THEOREM_LEDGER.yaml"
+    role: "UPIT mathematical framework"
+    status: "EXTRACTED_DEFINITIONS_ONLY"
+    authority: "definitions extracted in the Level 3 specification"
+    evidence_class: "EXTRACTED_SPECIFICATION"
+    implementation_required: true
+    implementation_status: "TASK_LAW_AND_CAPABILITY_KERNELS_EXIST_SOURCE_REPRODUCTION_UNAVAILABLE"
+  - id: RA_UPIT_GENERAL
+    artifact: "external:ra-upit/general-framework"
+    ledger_reference: "docs/ASSUMPTION_LEDGER.yaml"
+    role: "general RA-UPIT framework"
+    status: "EXTRACTED_DEFINITIONS_ONLY"
+    authority: "equations and interpretation boundaries extracted in the Level 3 specification"
+    evidence_class: "EXTRACTED_SPECIFICATION"
+    implementation_required: true
+    implementation_status: "RESOURCE_CAPABILITY_KERNEL_EXISTS_SOURCE_REPRODUCTION_UNAVAILABLE"
+  - id: RA_UPIT_RESOURCE_MASTER
+    artifact: "external:ra-upit/nanocapacitor-specification"
+    ledger_reference: "docs/REFERENCE_ARTIFACTS.yaml"
+    role: "RA-UPIT nanocapacitor master specification"
+    status: "EXTRACTED_REFERENCE_ONLY"
+    authority: "resource parameters and reference values extracted in the Level 3 specification"
+    evidence_class: "EXTRACTED_REFERENCE"
+    implementation_required: true
+    implementation_status: "P0_P1_P2_RESOURCE_ENGINE_EXISTS_SOURCE_REPRODUCTION_UNAVAILABLE"
+  - id: EXTERNAL_RESEARCH_CORPUS
+    artifact: "external:physioworld/research-corpus"
+    ledger_reference: "docs/SCIENTIFIC_SOURCE_LEDGER.yaml"
+    role: "research documents, supplementary methods, source tables, and external cohorts"
+    status: "EXTERNAL_INPUTS_NOT_DISTRIBUTED"
+    authority: "source roles and protocols extracted in the Level 3 specification"
+    evidence_class: "EXTRACTED_SPECIFICATION"
+    implementation_required: true
+    implementation_status: "RAW_EXTERNAL_INPUTS_REQUIRE_AUTHORIZED_ACQUISITION"

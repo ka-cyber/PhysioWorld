@@ -1,0 +1,1 @@
+{"fixture":"causal_intervention","seed":7,"scm":"BinaryTreatmentSCM","treatment_effect":2.0,"sample_count":100,"interventions":[0,1]}

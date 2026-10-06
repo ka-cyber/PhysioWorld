@@ -1,0 +1,136 @@
+name: Qualification
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: qualification-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  runtime:
+    name: ${{ matrix.os }} / Python ${{ matrix.python }} / ${{ matrix.profile }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python: ['3.10', '3.11', '3.12', '3.13', '3.14']
+        profile: [core, scientific, dev]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        with:
+          version: '0.12.23'
+      - name: Install locked core
+        if: matrix.profile == 'core'
+        run: uv sync --frozen --no-default-groups --extra dev
+      - name: Install locked scientific integrations
+        if: matrix.profile == 'scientific'
+        run: uv sync --frozen --no-default-groups --extra dev --extra scientific --extra wfdb --extra yaml --extra plot --extra schema --extra arrow --extra hdf5 --extra nwb --extra dicom --extra serial --extra fmi
+      - name: Install locked development environment
+        if: matrix.profile == 'dev'
+        run: uv sync --frozen --no-default-groups --all-extras
+      - name: Unit and integration contracts
+        if: matrix.os == 'ubuntu-latest'
+        run: uv run --no-sync python -m unittest discover -s tests -v
+      - name: Scientific and property regression
+        if: matrix.profile == 'dev' && matrix.os == 'ubuntu-latest'
+        run: uv run --no-sync python -m pytest -q
+      - name: Installed runtime checks
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          uv run --no-sync physioworld doctor
+          uv run --no-sync physioworld qualify-install
+          uv run --no-sync physioworld benchmark
+      - name: Cross-platform installed runtime checks
+        if: matrix.os != 'ubuntu-latest'
+        run: |
+          uv run --no-sync physioworld doctor
+          uv run --no-sync physioworld qualify-install
+          uv run --no-sync physioworld benchmark
+      - name: Three synthetic verticals
+        run: |
+          uv run --no-sync physioworld run examples/cardio_world.json --output .physioworld/cardio
+          uv run --no-sync physioworld run examples/neuro_world.json --output .physioworld/neuro
+          uv run --no-sync physioworld run examples/icu_world.json --output .physioworld/icu
+          uv run --no-sync physioworld reproduce .physioworld/cardio/result_manifest.json --output .physioworld/cardio-reproduced
+
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.10'
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        with:
+          version: '0.12.23'
+      - run: uv lock --check
+      - run: uv sync --python 3.10 --frozen --all-extras
+      - name: Frozen pip export parity
+        run: uv run --no-sync python tools/check_lock_exports.py
+      - name: Lint
+        run: uv run --no-sync ruff check src tests tools scripts
+      - name: Format
+        run: uv run --no-sync ruff format --check src tests tools scripts
+      - name: Types
+        run: uv run --no-sync mypy src/physioworld tools
+      - name: Schema validation and resource parity
+        run: uv run --no-sync python tools/check_schemas.py
+      - name: Citation schema
+        run: uvx --python 3.12 --from cffconvert==2.0.0 --with-requirements requirements/requirements-citation.txt cffconvert --validate -i CITATION.cff
+      - name: Documentation links and build
+        run: |
+          uv run --no-sync python -m unittest discover -s tools -p 'test_*.py' -v
+          python tools/docs.py check
+          python tools/docs.py build --output "${{ runner.temp }}/physioworld-docs"
+      - name: Source security
+        run: uv run --no-sync bandit -r src tools scripts -ll
+      - name: Secrets
+        run: uv run --no-sync python tools/check_security.py
+      - name: Locked dependency advisories
+        run: |
+          uv run --no-sync pip-audit --strict --disable-pip --require-hashes -r requirements/requirements-dev.txt
+          uv run --no-sync pip-audit --strict --disable-pip --require-hashes -r requirements/requirements-scientific.txt
+          uv run --no-sync pip-audit --strict --disable-pip --require-hashes -r requirements/requirements-citation.txt
+      - name: License metadata and attribution inventory
+        run: uv run --no-sync python tools/check_licenses.py --output "${{ runner.temp }}/licenses.json"
+
+  distributions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        with:
+          version: '0.12.23'
+      - run: uv sync --frozen --all-extras
+      - name: Build wheel from sdist
+        run: uv run --no-sync python -m build --outdir "${{ runner.temp }}/physioworld-dist"
+      - name: Package metadata
+        run: uv run --no-sync twine check "${{ runner.temp }}"/physioworld-dist/*
+      - name: Clean installations outside checkout
+        run: uv run --no-sync python tools/smoke_install.py "${{ runner.temp }}"/physioworld-dist/* --parent "${{ runner.temp }}" --examples examples --report "${{ runner.temp }}/install-report.json"
+      - name: Observed release inventory
+        run: uv run --no-sync python tools/release_manifest.py --output "${{ runner.temp }}/physioworld-evidence" --artifact "${{ runner.temp }}/physioworld-dist/physioworld-0.1.0-py3-none-any.whl" --artifact "${{ runner.temp }}/physioworld-dist/physioworld-0.1.0.tar.gz"
+      - name: Validate CycloneDX SBOM
+        run: uv run --no-sync python tools/check_sbom.py "${{ runner.temp }}/physioworld-evidence/sbom.json"
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: distributions-and-evidence
+          path: |
+            ${{ runner.temp }}/physioworld-dist/
+            ${{ runner.temp }}/physioworld-evidence/
+            ${{ runner.temp }}/install-report.json
+          if-no-files-found: error

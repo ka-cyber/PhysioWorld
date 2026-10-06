@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "worlds": [
+    {"id": "normal_physiology", "fixture": "datasets/golden/normal_physiology.json", "expected": "deterministic replay"},
+    {"id": "missing_modality", "fixture": "datasets/golden/missing_modality.json", "expected": "missingness remains explicit"},
+    {"id": "packet_loss", "fixture": "datasets/golden/packet_loss.json", "expected": "transport and semantic results are separate"},
+    {"id": "resource_depletion", "fixture": "datasets/golden/resource_depletion.json", "expected": "safety boundary is explicit"},
+    {"id": "causal_intervention", "fixture": "datasets/golden/causal_intervention.json", "expected": "synthetic truth is distinguished from observation"}
+  ]
+}

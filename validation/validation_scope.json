@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0.0",
+  "software_verification": "supported by package tests, schemas, deterministic replay, and independent numerical references",
+  "model_validation": "context-dependent and requires external observations not bundled here",
+  "clinical_validation": "not performed",
+  "hardware_validation": "not performed",
+  "causal_identification": "available for guarded synthetic or explicitly identified designs only"
+}

@@ -1,0 +1,3 @@
+# The installed core has no third-party runtime dependencies.
+# Exact optional environments: uv.lock and requirements/ hash-pinned exports.
+# Install the package itself with: python -m pip install .

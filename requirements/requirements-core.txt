@@ -1,0 +1,1 @@
+# PhysioWorld core intentionally has no third-party runtime dependencies.

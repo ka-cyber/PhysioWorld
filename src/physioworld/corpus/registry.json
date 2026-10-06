@@ -1,0 +1,327 @@
+{
+  "registry_version": "1.0.0",
+  "registry_status": "ACCESSIBLE_CORPUS_MAP",
+  "evidence_policy": "Specifications and unavailable source data are never promoted to active empirical evidence.",
+  "sources": [
+    {
+      "id": "PIR_MATH",
+      "title": "PIR mathematical foundation",
+      "artifact": "external:pir/mathematical-foundation",
+      "role": "normative definitions for PIV, representation deficiency, loss decomposition and PIR",
+      "authority": "extracted specification",
+      "evidence_class": "DEFINITION",
+      "access_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "maps_to": {
+        "equations": ["PIV_tau", "D_V", "L_info", "L_policy", "L_total", "PIR"],
+        "claims": ["PIR_IS_TASK_RELATIVE"],
+        "estimands": ["task_relative_policy_value_preservation"],
+        "experiments": ["piv_counterfactual_synthetic", "pir_loss_decomposition"],
+        "datasets": [],
+        "fixtures": ["causal_intervention.json"],
+        "implementation_modules": ["physioworld.capability.pir", "physioworld.capability.values"],
+        "validation_gates": ["capability", "causal_boundary", "estimand_firewall"]
+      }
+    },
+    {
+      "id": "PIR_CONTROLLER",
+      "title": "PIR cross-layer controller study",
+      "artifact": "external:pir/cross-layer-controller-study",
+      "role": "historical cross-layer allocation/controller benchmark",
+      "authority": "extracted protocol and reference values",
+      "evidence_class": "EXTRACTED_SPECIFICATION",
+      "access_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "maps_to": {
+        "equations": ["controller_reward", "steady_state_energy_per_window"],
+        "claims": ["ADAPTIVE_ADVANTAGE_IS_CONDITION_DEPENDENT"],
+        "estimands": ["controller_reward_and_energy_per_window"],
+        "experiments": ["cross_layer_controller_benchmark"],
+        "datasets": [],
+        "fixtures": [],
+        "implementation_modules": ["physioworld.policies.adaptive", "physioworld.communication.policy"],
+        "validation_gates": ["controller", "falsification"]
+      }
+    },
+    {
+      "id": "UPIT_EMPIRICAL",
+      "title": "UPIT empirical/validation implementation",
+      "artifact": "external:upit/empirical-study",
+      "role": "historical orthostatic task-law and representation programme",
+      "authority": "extracted protocol and reference values",
+      "evidence_class": "EXTRACTED_REFERENCE",
+      "access_status": "RAW_DATA_NOT_SUPPLIED",
+      "supersedes": [],
+      "maps_to": {
+        "equations": ["D_T"],
+        "claims": ["HISTORY_IS_TASK_DEPENDENT"],
+        "estimands": ["conditional_task_law_discrepancy"],
+        "experiments": ["temporal_history_sweep", "task_law_battery", "external_transport"],
+        "datasets": ["UPIT_EMPIRICAL_RAW"],
+        "fixtures": ["task_transition.json"],
+        "implementation_modules": ["physioworld.tasklaws", "physioworld.benchmarks.corpus"],
+        "validation_gates": ["task_law", "uncertainty", "external_transport"]
+      }
+    },
+    {
+      "id": "UPIT_MATH",
+      "title": "UPIT mathematical framework",
+      "artifact": "external:upit/mathematical-framework",
+      "role": "task-law, capability and policy-relative information definitions",
+      "authority": "extracted definitions",
+      "evidence_class": "DEFINITION",
+      "access_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "maps_to": {
+        "equations": ["D_T", "C_Z", "h_CZ"],
+        "claims": ["COORDINATEWISE_OPTIMA_NEED_NOT_BE_JOINTLY_ATTAINABLE"],
+        "estimands": ["support_function", "task_law_discrepancy"],
+        "experiments": ["support_function_correction", "task_law_battery"],
+        "datasets": [],
+        "fixtures": ["task_transition.json"],
+        "implementation_modules": ["physioworld.capability.region", "physioworld.tasklaws"],
+        "validation_gates": ["capability", "task_law"]
+      }
+    },
+    {
+      "id": "RA_UPIT_GENERAL",
+      "title": "General RA-UPIT mathematical framework",
+      "artifact": "external:ra-upit/general-framework",
+      "role": "resource-conditioned capability and robust policy definitions",
+      "authority": "extracted definitions",
+      "evidence_class": "DEFINITION",
+      "access_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "maps_to": {
+        "equations": ["sup_pi_inf_theta_J", "resource_shadow_value", "epsilon_total"],
+        "claims": ["SCALAR_ENERGY_IS_NOT_UNIVERSAL_STATE"],
+        "estimands": ["robust_policy_value", "resource_conditioned_capability"],
+        "experiments": ["ra_upit_physics", "robust_resource_policy", "resource_phase_diagram"],
+        "datasets": [],
+        "fixtures": ["resource_depletion.json"],
+        "implementation_modules": ["physioworld.resources", "physioworld.policies"],
+        "validation_gates": ["resource", "robustness", "numerical"]
+      }
+    },
+    {
+      "id": "RA_UPIT_RESOURCE_MASTER",
+      "title": "RA-UPIT nanocapacitor master specification",
+      "artifact": "external:ra-upit/nanocapacitor-specification",
+      "role": "canonical P0/P1/P2 resource fixture and numerical reference values",
+      "authority": "extracted numerical references; original topology not supplied",
+      "evidence_class": "EXTRACTED_REFERENCE",
+      "access_status": "PARAMETERS_PARTIAL",
+      "supersedes": [],
+      "maps_to": {
+        "equations": ["P0_capacitor", "P1_ESR_leakage", "P2_coupled_state_space"],
+        "claims": ["P2_REQUIRES_COUPLED_INTERNAL_STATES"],
+        "estimands": ["deliverable_current", "ready_state_energy"],
+        "experiments": ["ra_upit_physics", "resource_vvuq"],
+        "datasets": [],
+        "fixtures": ["resource_depletion.json"],
+        "implementation_modules": ["physioworld.resources.capacitor", "physioworld.experiments.resource_vvuq"],
+        "validation_gates": ["resource", "numerical", "independent_checks"]
+      }
+    },
+    {
+      "id": "COMMUNICATION_THEORY",
+      "title": "Communication and capability mathematical draft",
+      "artifact": "external:communication/capability-draft",
+      "role": "semantic-vs-transport distinction and coding requirements",
+      "authority": "extracted definitions and negative-control protocol",
+      "evidence_class": "DEFINITION",
+      "access_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "maps_to": {
+        "equations": ["semantic_task_law_discrepancy"],
+        "claims": ["PACKET_DECODING_DOES_NOT_IMPLY_SEMANTIC_PRESERVATION"],
+        "estimands": ["transport_metrics", "task_semantic_preservation"],
+        "experiments": ["communication_negative_control", "semantic_transport_phase_diagram"],
+        "datasets": [],
+        "fixtures": ["packet_loss.json"],
+        "implementation_modules": ["physioworld.communication", "physioworld.experiments.communication_vvuq"],
+        "validation_gates": ["communication", "falsification"]
+      }
+    },
+    {
+      "id": "DECISION_THEORY",
+      "title": "Prior decision-theoretic scientific draft",
+      "artifact": "external:decision-theory/prior-draft",
+      "role": "utility, policy and capability interpretation boundary",
+      "authority": "historical/extracted specification",
+      "evidence_class": "EXTRACTED_SPECIFICATION",
+      "access_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "maps_to": {
+        "equations": ["V_pi", "h_CZ"],
+        "claims": ["VALUE_DEPENDS_ON_UTILITY_AND_POLICY_CLASS"],
+        "estimands": ["policy_value", "capability_support"],
+        "experiments": ["support_function_correction", "pir_loss_decomposition"],
+        "datasets": [],
+        "fixtures": [],
+        "implementation_modules": ["physioworld.capability", "physioworld.policies"],
+        "validation_gates": ["capability", "estimand_firewall"]
+      }
+    },
+    {
+      "id": "CURRENT_SCIENTIFIC_MAIN",
+      "title": "Current flagship main scientific document",
+      "artifact": "external:current-scientific-main",
+      "role": "current corrected scientific interpretation",
+      "authority": "current scientific source layer",
+      "evidence_class": "EXTRACTED_REFERENCE",
+      "access_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": ["PRIOR_RESEARCH_REPOSITORIES"],
+      "maps_to": {
+        "equations": ["D_T", "h_CZ", "PIR"],
+        "claims": ["REFERENCE_VALUES_ARE_ESTIMAND_SPECIFIC"],
+        "estimands": ["temporal_prediction", "intrinsic_representation_value"],
+        "experiments": ["temporal_history_sweep", "task_law_battery", "support_function_correction"],
+        "datasets": ["UPIT_EMPIRICAL_RAW", "EXTERNAL_31_RECORDING_COHORT"],
+        "fixtures": [],
+        "implementation_modules": ["physioworld.benchmarks", "physioworld.capability"],
+        "validation_gates": ["corpus_reproduction", "external_transport"]
+      }
+    },
+    {
+      "id": "CURRENT_SCIENTIFIC_SUPPLEMENT",
+      "title": "Current flagship supplementary scientific document",
+      "artifact": "external:current-scientific-supplement",
+      "role": "supplementary methods, controls and source-specific analyses",
+      "authority": "current supplementary source layer",
+      "evidence_class": "EXTRACTED_SPECIFICATION",
+      "access_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "maps_to": {
+        "equations": ["NIRS_optical_density", "network_association"],
+        "claims": ["NIRS_PROXY_IS_NOT_HBT", "NETWORK_ASSOCIATION_IS_NOT_CAUSALITY"],
+        "estimands": ["optical_density_direction", "network_topology"],
+        "experiments": ["nirs_raw_proxy", "network_physiology"],
+        "datasets": ["NIRS_EXTERNAL", "NETWORK_EXTERNAL"],
+        "fixtures": [],
+        "implementation_modules": ["physioworld.instrumentation.nirs", "physioworld.experiments.network_physiology"],
+        "validation_gates": ["nirs_semantics", "network_physiology"]
+      }
+    },
+    {
+      "id": "PRIOR_RESEARCH_REPOSITORIES",
+      "title": "Accessible prior PhysioWorld research archives",
+      "artifact": "workspace:PhysioWorld_Final.zip; workspace:physio.zip; workspace:physioworld1.zip",
+      "role": "historical implementation snapshots; duplicate/stale archives are not active evidence",
+      "authority": "workspace archive inspection",
+      "evidence_class": "HISTORICAL_CONTEXT",
+      "access_status": "ACCESSIBLE_ARCHIVES",
+      "supersedes": [],
+      "maps_to": {
+        "equations": [],
+        "claims": [],
+        "estimands": [],
+        "experiments": [],
+        "datasets": [],
+        "fixtures": [],
+        "implementation_modules": ["physioworld"],
+        "validation_gates": ["public_hygiene", "release_reproducibility"]
+      }
+    },
+    {
+      "id": "LEVEL1_AUDIT",
+      "title": "PhysioWorld Level 1 audit",
+      "artifact": "external:physioworld/level1-audit",
+      "role": "prior implementation and scientific audit findings",
+      "authority": "prior audit extract",
+      "evidence_class": "SOFTWARE_VERIFICATION",
+      "access_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": [],
+      "maps_to": {
+        "equations": [],
+        "claims": [],
+        "estimands": [],
+        "experiments": [],
+        "datasets": [],
+        "fixtures": [],
+        "implementation_modules": ["physioworld"],
+        "validation_gates": ["software", "scientific_regression"]
+      }
+    },
+    {
+      "id": "LEVEL2_AUDIT",
+      "title": "PhysioWorld Level 2 post-build audit",
+      "artifact": "external:physioworld/level2-audit",
+      "role": "post-build audit used to identify integration gaps",
+      "authority": "prior audit extract",
+      "evidence_class": "SOFTWARE_VERIFICATION",
+      "access_status": "INDIRECTLY_DOCUMENTED",
+      "supersedes": ["LEVEL1_AUDIT"],
+      "maps_to": {
+        "equations": [],
+        "claims": [],
+        "estimands": [],
+        "experiments": ["master_scientific_suite"],
+        "datasets": [],
+        "fixtures": [],
+        "implementation_modules": ["physioworld.benchmarks", "physioworld.qualification"],
+        "validation_gates": ["release_qualification", "public_hygiene"]
+      }
+    },
+    {
+      "id": "PHYSIOWORLD_CURRENT",
+      "title": "Current PhysioWorld implementation",
+      "artifact": "package:physioworld",
+      "role": "executable scientific platform and implementation authority",
+      "authority": "current source tree",
+      "evidence_class": "SOFTWARE_VERIFICATION",
+      "access_status": "ACCESSIBLE_IMPLEMENTATION",
+      "supersedes": ["PRIOR_RESEARCH_REPOSITORIES"],
+      "maps_to": {
+        "equations": ["D_T", "h_CZ", "PIR", "P0", "P1", "P2"],
+        "claims": ["NO_SILENT_EVIDENCE_UPGRADE", "NO_METRIC_SUBSTITUTION"],
+        "estimands": ["declared_task_law", "policy_support", "resource_value"],
+        "experiments": ["master_scientific_suite"],
+        "datasets": ["golden_synthetic"],
+        "fixtures": ["normal_physiology.json", "artifact.json", "missing_modality.json", "packet_loss.json", "resource_depletion.json", "task_transition.json", "causal_intervention.json"],
+        "implementation_modules": ["physioworld"],
+        "validation_gates": ["software", "scientific", "data", "security", "release"]
+      }
+    },
+    {
+      "id": "PROMPT2",
+      "title": "PhysioWorld complete master build specification",
+      "artifact": "workspace:prompt 2.md",
+      "role": "baseline architecture, scientific and release acceptance contract",
+      "authority": "supplied build prompt",
+      "evidence_class": "DEFINITION",
+      "access_status": "ACCESSIBLE_SPECIFICATION",
+      "supersedes": [],
+      "maps_to": {
+        "equations": ["D_T", "h_CZ", "PIV", "PIR", "J_star"],
+        "claims": ["PHYSIOLOGICAL_INFORMATION_IS_TASK_RELATIVE"],
+        "estimands": ["all_declared_metric_contexts"],
+        "experiments": ["master_scientific_suite"],
+        "datasets": [],
+        "fixtures": [],
+        "implementation_modules": ["physioworld"],
+        "validation_gates": ["all_master_acceptance_gates"]
+      }
+    },
+    {
+      "id": "LEVEL3_PROMPT",
+      "title": "PhysioWorld Level 3 scientific completion and corpus experiment specification",
+      "artifact": "workspace:PHYSIOWORLD_LEVEL3_COMPLETE_CORPUS_EXPERIMENT_BUILD_PROMPT.md",
+      "role": "corpus ingestion, executable experiments, VVUQ, falsification and release qualification extension",
+      "authority": "supplied Level 3 build prompt",
+      "evidence_class": "DEFINITION",
+      "access_status": "ACCESSIBLE_SPECIFICATION",
+      "supersedes": [],
+      "maps_to": {
+        "equations": ["epsilon_total", "sup_pi_inf_theta_J", "h_CZ"],
+        "claims": ["PREDICTIVE_SUFFICIENCY_IS_NOT_CAUSAL_SUFFICIENCY", "TRANSPORT_SUCCESS_IS_NOT_SEMANTIC_SUCCESS"],
+        "estimands": ["task_law_battery", "support_gap", "robust_policy_value", "causal_identification"],
+        "experiments": ["all_level3_experiments"],
+        "datasets": ["all_declared_external_inputs"],
+        "fixtures": ["all_golden_fixtures"],
+        "implementation_modules": ["physioworld.benchmarks", "physioworld.experiments", "physioworld.qualification"],
+        "validation_gates": ["corpus", "vv uq", "falsification", "release"]
+      }
+    }
+  ]
+}

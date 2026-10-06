@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/physioworld/experiment.schema.json",
+  "title": "PhysioWorld typed experiment declaration",
+  "description": "Compilation establishes configuration readiness, never execution or scientific validation. Legacy datasets retain configuration-only semantics.",
+  "oneOf": [
+    {"$ref": "#/$defs/declaration"},
+    {"type": "object", "required": ["experiment"], "properties": {"$schema": {"type": "string"}, "experiment": {"$ref": "#/$defs/declaration"}}, "additionalProperties": false}
+  ],
+  "$defs": {
+    "declaration": {
+      "oneOf": [
+        {"$ref": "#/$defs/dataset_readiness"},
+        {"$ref": "#/$defs/synthetic_samples"},
+        {"$ref": "#/$defs/vertical"}
+      ]
+    },
+    "synthetic_samples": {"$ref": "world.schema.json"},
+    "vertical": {"$ref": "vertical.schema.json"},
+    "nonempty_string": {"type": "string", "minLength": 1},
+    "string_or_object": {"oneOf": [{"$ref": "#/$defs/nonempty_string"}, {"type": "object"}]},
+    "dataset_readiness": {
+      "type": "object",
+      "not": {"anyOf": [{"required": ["samples"]}, {"required": ["vertical"]}, {"required": ["experiment"]}]},
+      "required": ["dataset", "task", "representation", "perturbations", "channel", "resource", "compute", "policy", "seed", "split", "metrics", "outputs"],
+      "properties": {
+        "$schema": {"type": "string"},
+        "schema_version": {"const": "1.0.0"},
+        "name": {"$ref": "#/$defs/nonempty_string"},
+        "dataset": {"oneOf": [{"$ref": "#/$defs/nonempty_string"}, {"type": "object", "required": ["id"], "properties": {"id": {"$ref": "#/$defs/nonempty_string"}}}]},
+        "task": {
+          "type": "object", "required": ["id", "target"],
+          "properties": {
+            "id": {"$ref": "#/$defs/nonempty_string"}, "target": {"$ref": "#/$defs/nonempty_string"},
+            "horizon": {"type": "number", "minimum": 0}, "horizon_s": {"type": "number", "minimum": 0},
+            "metric": {"$ref": "#/$defs/nonempty_string"}, "loss": {"$ref": "#/$defs/nonempty_string"}, "utility": {"$ref": "#/$defs/nonempty_string"}
+          },
+          "allOf": [
+            {"anyOf": [{"required": ["horizon"]}, {"required": ["horizon_s"]}]},
+            {"anyOf": [{"required": ["metric"]}, {"required": ["loss"]}, {"required": ["utility"]}]}
+          ]
+        },
+        "representation": {"$ref": "#/$defs/string_or_object"},
+        "perturbations": {"type": "array"},
+        "channel": {"$ref": "#/$defs/string_or_object"},
+        "resource": {"$ref": "#/$defs/string_or_object"},
+        "compute": {"$ref": "#/$defs/string_or_object"},
+        "policy": {"$ref": "#/$defs/string_or_object"},
+        "seed": {"type": "integer"},
+        "split": {"$ref": "#/$defs/string_or_object"},
+        "metrics": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/nonempty_string"}},
+        "outputs": {"$ref": "#/$defs/string_or_object"}
+      },
+      "additionalProperties": true
+    }
+  }
+}

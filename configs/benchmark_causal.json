@@ -1,0 +1,1 @@
+{"name":"benchmark_causal","dataset":"golden_synthetic_scm","task":{"id":"causal","horizon_s":1,"target":"outcome","metric":"ATE"},"representation":"state","perturbations":[],"channel":{},"resource":{},"compute":{},"policy":{"type":"g_formula"},"seed":16,"split":"synthetic_holdout_test","metrics":["ATE","positivity"],"outputs":{"report":true}}

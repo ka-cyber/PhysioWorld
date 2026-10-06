@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/physioworld/result_manifest.schema.json",
+  "title": "PhysioWorld result manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["run_id", "created_at", "software_version", "python_version", "platform", "seed", "configuration", "datasets", "outputs", "input_hashes", "output_hashes", "git_commit", "status", "manifest_version", "source_digest", "schema_digest", "scientific_outputs"],
+  "properties": {
+    "run_id": {"type": "string", "minLength": 1},
+    "created_at": {"type": "string", "format": "date-time", "minLength": 1},
+    "software_version": {"type": "string", "minLength": 1},
+    "python_version": {"type": "string", "minLength": 1},
+    "platform": {"type": "string", "minLength": 1},
+    "seed": {"type": ["integer", "null"]},
+    "configuration": {"type": "object"},
+    "datasets": {"type": "array", "items": {"type": "object"}},
+    "outputs": {"type": "object", "minProperties": 0, "additionalProperties": {"type": "string", "minLength": 1}},
+    "input_hashes": {"type": "object", "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"}},
+    "output_hashes": {"type": "object", "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"}},
+    "git_commit": {"type": ["string", "null"]},
+    "status": {"enum": ["COMPLETE", "FAILED", "PARTIAL", "UNKNOWN"]},
+    "manifest_version": {"type": "integer", "minimum": 0},
+    "source_digest": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "schema_digest": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "scientific_outputs": {"type": ["array", "null"], "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
+  }
+}

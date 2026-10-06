@@ -1,0 +1,22 @@
+{
+  "corpus_id": "native_level3_synthetic",
+  "schema_version": "1.0.0",
+  "execution_profile": "native_level3_targeted",
+  "target_fidelity": "HYBRID",
+  "actual_fidelity": "SYNTHETIC",
+  "evidence_class": "SIMULATION_AND_NUMERICAL_VERIFICATION",
+  "fixture_root": "package:physioworld/corpus/golden",
+  "seed_policy": "declared_case_seeds",
+  "external_inputs": "NOT_REPRODUCIBLE_FROM_AVAILABLE_INPUTS",
+  "clinical_claim": false,
+  "cases": [
+    "representation_temporal",
+    "tasklaw_transition",
+    "communication_semantic",
+    "resource_p1",
+    "policy_capability",
+    "causal_synthetic",
+    "robustness_common_policy",
+    "verticals"
+  ]
+}

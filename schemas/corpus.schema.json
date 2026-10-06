@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "corpus.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["corpus_id", "schema_version", "execution_profile", "target_fidelity", "actual_fidelity", "evidence_class", "fixture_root", "seed_policy", "external_inputs", "clinical_claim", "cases"],
+  "properties": {
+    "corpus_id": {"const": "native_level3_synthetic"},
+    "schema_version": {"const": "1.0.0"},
+    "execution_profile": {"const": "native_level3_targeted"},
+    "target_fidelity": {"const": "HYBRID"},
+    "actual_fidelity": {"const": "SYNTHETIC"},
+    "evidence_class": {"const": "SIMULATION_AND_NUMERICAL_VERIFICATION"},
+    "fixture_root": {"const": "package:physioworld/corpus/golden"},
+    "seed_policy": {"const": "declared_case_seeds"},
+    "external_inputs": {"const": "NOT_REPRODUCIBLE_FROM_AVAILABLE_INPUTS"},
+    "clinical_claim": {"const": false},
+    "cases": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"enum": ["representation_temporal", "tasklaw_transition", "communication_semantic", "resource_p1", "policy_capability", "causal_synthetic", "robustness_common_policy", "verticals"]}
+    }
+  }
+}

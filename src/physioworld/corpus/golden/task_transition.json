@@ -1,0 +1,1 @@
+{"fixture":"task_transition","seed":6,"states":["low","high","low","high"],"actions":["sample","skip","sample","sample"],"utility":[0.4,0.1,0.8,0.9]}

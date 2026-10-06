@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "purpose": "Curated benchmark entry points for reproducible research qualification",
+  "command": "physioworld scientific-suite --profile fast --output .physioworld/scientific-suite",
+  "families": [
+    "task-law",
+    "representation",
+    "capability",
+    "communication",
+    "resource",
+    "causal",
+    "physiology",
+    "interoperability"
+  ],
+  "evidence_boundary": "Synthetic and mathematical benchmark results are not empirical, clinical, hardware, or regulatory validation."
+}

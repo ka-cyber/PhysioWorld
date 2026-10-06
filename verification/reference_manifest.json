@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "independent_references": [
+    "capacitor closed-form transition",
+    "PCA covariance/SVD reference",
+    "GF(256) polynomial arithmetic and batch elimination",
+    "support function direct policy enumeration",
+    "P2 independent RK4 circuit integration",
+    "synthetic causal structural effect"
+  ],
+  "qualification_command": "physioworld qualify-install --checkout-tests",
+  "status": "CURATED_REFERENCE_DECLARATIONS"
+}

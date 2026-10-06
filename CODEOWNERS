@@ -1,0 +1,8 @@
+# Repository ownership and required review routing.
+# Scientific authorship is recorded separately in CITATION.cff.
+* @ka-cyber
+/.github/ @ka-cyber
+/pyproject.toml @ka-cyber
+/uv.lock @ka-cyber
+/tools/ @ka-cyber
+/SECURITY.md @ka-cyber

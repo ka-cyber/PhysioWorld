@@ -1,0 +1,80 @@
+"""Seeded, provenance-carrying signal and systems perturbations."""
+
+from .advanced import (
+    ADCSaturation,
+    CalibrationFailure,
+    CorrelatedMissingness,
+    DistributionShift,
+    ElectrodeArtifact,
+    EMGContamination,
+    GainError,
+    MotionArtifact,
+    OffsetError,
+    SensorDropout,
+)
+from .base import Perturbation, PerturbationResult
+from .network import Connectivity, LatencyJitter, PacketLoss
+from .physiological import (
+    PhysiologicalChallenge,
+    exercise_challenge,
+    hemorrhage_challenge,
+    lbnp_challenge,
+    orthostatic_transition,
+)
+from .signal import (
+    AdditiveNoise,
+    BaselineWander,
+    Clipping,
+    Missingness,
+    Quantization,
+    SensorDrift,
+)
+from .systems import (
+    BandwidthLimitation,
+    ConceptDrift,
+    CPUContention,
+    DriftScenario,
+    MemoryLimitation,
+    ModelUncertainty,
+    RegimeSwitching,
+    ResourceStarvation,
+    adaptation_value,
+)
+
+__all__ = [
+    "Perturbation",
+    "PerturbationResult",
+    "AdditiveNoise",
+    "BaselineWander",
+    "Clipping",
+    "Missingness",
+    "Quantization",
+    "SensorDrift",
+    "Connectivity",
+    "LatencyJitter",
+    "PacketLoss",
+    "MotionArtifact",
+    "ElectrodeArtifact",
+    "EMGContamination",
+    "SensorDropout",
+    "CorrelatedMissingness",
+    "DistributionShift",
+    "GainError",
+    "OffsetError",
+    "CalibrationFailure",
+    "ADCSaturation",
+    "RegimeSwitching",
+    "BandwidthLimitation",
+    "ResourceStarvation",
+    "CPUContention",
+    "MemoryLimitation",
+    "ModelUncertainty",
+    "ConceptDrift",
+    "DriftScenario",
+    "adaptation_value",
+    "PhysiologicalChallenge",
+    "exercise_challenge",
+    "hemorrhage_challenge",
+    "lbnp_challenge",
+    "orthostatic_transition",
+]

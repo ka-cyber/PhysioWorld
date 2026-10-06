@@ -1,0 +1,1 @@
+{"name":"benchmark_policy","dataset":"golden_synthetic","task":{"id":"policy","horizon_s":5,"target":"utility","metric":"value"},"representation":"medical_state","perturbations":[],"channel":{},"resource":{},"compute":{},"policy":{"type":"DP_oracle"},"seed":15,"split":"synthetic_holdout_test","metrics":["value","regret","violations"],"outputs":{"report":true}}

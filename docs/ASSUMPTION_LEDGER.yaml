@@ -1,0 +1,27 @@
+schema_version: "1.0.0"
+assumptions:
+  - id: ASSUMP_GOLDEN_SYNTHETIC
+    statement: "Golden fixtures are deterministic synthetic or mathematical fixtures and contain no patient observations."
+    status: VERIFIED
+    evidence_class: DEFINITION
+    source_ids: [GOLDEN_SYNTHETIC_FIXTURES]
+  - id: ASSUMP_P1_CIRCUIT
+    statement: "The native P1 analytic reference uses a constant-current, zero-leakage capacitor with declared ESR and finite duration."
+    status: TESTED
+    evidence_class: MODEL
+    source_ids: [PHYSIOWORLD_CURRENT]
+  - id: ASSUMP_FINITE_POLICY
+    statement: "The policy fixture has a finite state/action space and a known finite horizon."
+    status: VERIFIED
+    evidence_class: DEFINITION
+    source_ids: [PHYSIOWORLD_CURRENT]
+  - id: ASSUMP_CAUSAL_SYNTHETIC_TRUTH
+    statement: "The BinaryTreatmentSCM treatment effect is a structural model truth, not an empirical population estimate."
+    status: VERIFIED
+    evidence_class: MODEL
+    source_ids: [GOLDEN_SYNTHETIC_FIXTURES]
+  - id: ASSUMP_EXTERNAL_INPUTS
+    statement: "Original external documents, cohorts, and source tables are not distributed; their extracted references cannot support active empirical claims."
+    status: DECLARED_INPUT_BOUNDARY
+    evidence_class: UNAVAILABLE_EXTERNAL_SOURCE
+    source_ids: [LEVEL3_PROMPT, EXTERNAL_RESEARCH_CORPUS]

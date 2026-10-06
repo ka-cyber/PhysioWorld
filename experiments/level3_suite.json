@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "experiment_id": "master_scientific_suite",
+  "command": "physioworld scientific-suite --profile fast --output .physioworld/scientific-suite",
+  "registry": "physioworld.corpus.experiments",
+  "required_verticals": [
+    "cardiovascular",
+    "neurophysiology",
+    "icu"
+  ],
+  "required_local_checks": [
+    "task-law",
+    "representation",
+    "communication",
+    "resource",
+    "capability",
+    "causal",
+    "interoperability"
+  ],
+  "external_inputs": "blocked-until-authorized-source-artifacts-are-supplied",
+  "output_contract": "suite_result.json plus checksums.sha256"
+}

@@ -1,0 +1,109 @@
+{
+  "$schema": "experiment.schema.json",
+  "schema_version": "1.0.0",
+  "name": "synthetic_alarm_protocol_readiness",
+  "dataset": {
+    "id": "synthetic_alarm_recipe_v1",
+    "origin": "SYNTHETIC",
+    "availability": "DECLARED_RECIPE_NOT_GENERATED",
+    "generator": "For each synthetic sequence, x(t) = 0.5 + 0.4*sin(2*pi*t/20 + phase_rad); this file declares the recipe only.",
+    "subject_phases_rad": {
+      "sim-01": 0.0,
+      "sim-02": 0.5,
+      "sim-03": 1.0,
+      "sim-04": 1.5
+    },
+    "sample_rate_hz": 1.0,
+    "sample_interval_s": 1.0,
+    "start_time_s": 0.0,
+    "end_time_s": 60.0,
+    "unit": "dimensionless",
+    "time_unit": "s"
+  },
+  "task": {
+    "id": "synthetic_one_second_threshold_alarm",
+    "target": "indicator that synthetic x(t+1) is at least 0.7",
+    "horizon_s": 1.0,
+    "metric": "sensitivity",
+    "loss": "zero_one",
+    "threshold": 0.7,
+    "threshold_unit": "dimensionless"
+  },
+  "representation": {
+    "name": "finite_history",
+    "window": 1,
+    "window_unit": "samples",
+    "availability_rule": "Use only x(t) available at the prediction time t."
+  },
+  "perturbations": [],
+  "channel": {
+    "model": "erasure",
+    "loss_probability": 0.0,
+    "latency_s": 0.0,
+    "jitter_s": 0.0,
+    "packet_payload_bytes": 4,
+    "encoding": "float32_be",
+    "deadline_s": 1.0
+  },
+  "resource": {
+    "model": "capacitor_p1",
+    "capacitance_f": 0.2,
+    "esr_ohm": 8.0,
+    "leakage_siemens": 0.0,
+    "initial_voltage_v": 2.65,
+    "v_min": 1.85,
+    "v_max": 3.3,
+    "max_current_a": 0.02,
+    "load_current_a": 0.001,
+    "step_duration_s": 1.0,
+    "parameter_origin": "SYNTHETIC_MODEL_PARAMETERS_NOT_HARDWARE_MEASUREMENTS"
+  },
+  "compute": {
+    "location": "local",
+    "operations_per_sample": 1,
+    "operations_per_second": 1000.0,
+    "memory_bytes": 1024,
+    "required_memory_bytes": 4,
+    "energy_per_operation_j": 0.000000001,
+    "network_latency_s": 0.0
+  },
+  "policy": {
+    "class": "fixed_threshold_alarm",
+    "information_set": "current synthetic sample available at prediction time",
+    "action_set": ["negative", "positive", "abstain"],
+    "decision_rule": "Predict positive when the persistence score x(t) is at least 0.7; otherwise predict negative.",
+    "fallback_action": "abstain"
+  },
+  "seed": 7,
+  "split": {
+    "strategy": "prespecified temporal held-out test within each synthetic sequence",
+    "train_prediction_time_interval_s": [0.0, 30.0],
+    "validation_prediction_time_interval_s": [30.0, 40.0],
+    "test_prediction_time_interval_s": [40.0, 60.0],
+    "interval_convention": "Left inclusive and right exclusive; retain a prediction only when its one-second target time is inside the same partition.",
+    "fit_policy": "No fitting or threshold selection; the model and threshold are fixed before any test evaluation."
+  },
+  "metrics": ["sensitivity", "specificity", "false_alarms_per_hour"],
+  "outputs": {
+    "format": "json",
+    "readiness_only": true
+  },
+  "intended_use": "Freeze a synthetic threshold-alarm protocol for configuration-readiness demonstrations; no patient diagnosis or treatment use.",
+  "population": "Four analytic synthetic sequences sim-01 through sim-04 with the phases specified in the dataset recipe; no human participants.",
+  "data_provenance": "Analytic sinusoidal recipe declared in this configuration; samples have not been generated or acquired and no external cohort is represented.",
+  "inclusion_exclusion": "Include integer-second predictions with finite current samples and an available one-second target within the same temporal partition; exclude boundary-crossing or missing-target predictions.",
+  "reference_standard": "Binary labels would be computed directly from the declared analytic x(t+1) >= 0.7 rule, independently of the persistence prediction; no clinician adjudication is claimed.",
+  "endpoint": "Synthetic signal threshold exceedance one second after the prediction time; this is not a clinical event.",
+  "analysis_population": "All eligible predictions in the prespecified temporal test partition across the four synthetic sequences; repeated observations belong to their sequence.",
+  "missing_data": "The analytic recipe defines complete values; if a current sample is unavailable the policy abstains, and if a target is unavailable the prediction is excluded and counted explicitly without imputation.",
+  "model": {
+    "name": "analytic_persistence_score",
+    "version": "1.0.0",
+    "prediction_rule": "The one-second-ahead signal score equals the current sample x(t).",
+    "score_unit": "dimensionless",
+    "fitting": "FIXED_RULE_NO_FITTING",
+    "calibration": "Signal score only; no calibrated probability claim."
+  },
+  "threshold": 0.7,
+  "dataset_version": "synthetic-alarm-recipe-1.0.0"
+}

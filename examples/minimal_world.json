@@ -1,0 +1,11 @@
+{
+  "$schema": "../schemas/world.schema.json",
+  "name": "minimal_deterministic_world",
+  "seed": 7,
+  "modality": "ECG",
+  "sample_rate": 10.0,
+  "unit": "mV",
+  "samples": [0.0, 0.2, 0.8, 0.2, 0.0, -0.1, 0.0],
+  "perturbations": [{"type": "additive_noise", "sigma": 0.01}],
+  "metrics": ["mean", "rms"]
+}
