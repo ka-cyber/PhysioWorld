@@ -126,7 +126,7 @@ jobs:
         run: uv run --no-sync python tools/release_manifest.py --output "${{ runner.temp }}/physioworld-evidence" --artifact "${{ runner.temp }}/physioworld-dist/physioworld-0.1.0-py3-none-any.whl" --artifact "${{ runner.temp }}/physioworld-dist/physioworld-0.1.0.tar.gz"
       - name: Validate CycloneDX SBOM
         run: uv run --no-sync python tools/check_sbom.py "${{ runner.temp }}/physioworld-evidence/sbom.json"
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: distributions-and-evidence
           path: |
