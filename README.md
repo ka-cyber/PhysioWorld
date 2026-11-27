@@ -15,7 +15,7 @@ evidence have distinct meanings throughout the platform.
 
 ## Install and run your first experiment
 
-Python **3.10–3.14** is the declared support range. From a checkout:
+Python **3.11–3.14** is the declared support range. From a checkout:
 
 ```bash
 python -m venv .venv
